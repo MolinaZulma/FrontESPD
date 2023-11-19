@@ -52,7 +52,7 @@ export class AuthOptionsComponent implements OnInit {
 
   private setToken(tokenObject: IListTokenDTO): void {
     sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);
-    // this._router.navigate(['ptap']);
+    this._router.navigate(['ptap']);
   }
 
   private getAuthenticateDTO(): ICreateTokenDTO {

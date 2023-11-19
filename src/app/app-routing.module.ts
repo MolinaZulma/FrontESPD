@@ -16,6 +16,8 @@ const routes: Routes = [
         (m) => m.DamageReportModule
       ),
   },
+  { path: 'ptap', loadChildren: () => import('./presentation/ptap/ptap.module').then(m => m.PtapModule) },
+  { path: 'ptar', loadChildren: () => import('./presentation/ptar/ptar.module').then(m => m.PtarModule) },
   { path: '**', redirectTo: 'authenticate/auth-options', pathMatch: 'full' },
 
 ];
