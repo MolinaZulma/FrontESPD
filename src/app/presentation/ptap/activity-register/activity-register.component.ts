@@ -38,7 +38,7 @@ export class ActivityRegisterComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    debugger;
+    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListActivityDTO> = {
       success: this.showCreated.bind(this),
@@ -55,6 +55,7 @@ export class ActivityRegisterComponent implements OnInit {
 
   public showCreated(iListActivityDTO: IListActivityDTO): void {
     console.log(iListActivityDTO);
+    this.goHome()
   }
 
   public handleError(error: any): void {
@@ -68,5 +69,9 @@ export class ActivityRegisterComponent implements OnInit {
       Observations: this.ICreateActivityDTO.get('Observations')?.value ?? '',
       NationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
+  }
+  
+  public goHome(): void {
+    this._router.navigate(['ptap', 'home'])
   }
 }

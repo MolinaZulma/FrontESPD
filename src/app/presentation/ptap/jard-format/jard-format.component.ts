@@ -35,7 +35,7 @@ export class JardFormatComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    debugger;
+    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListJarDTO> = {
       success: this.showCreated.bind(this),
@@ -52,6 +52,8 @@ export class JardFormatComponent implements OnInit {
 
   public showCreated(iListJarDTO: IListJarDTO): void {
     console.log(iListJarDTO);
+    
+    this.goHome()
   }
 
   public handleError(error: any): void {
@@ -66,5 +68,9 @@ export class JardFormatComponent implements OnInit {
       nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
       idPlant: 1
     };
+  }
+
+  public goHome(): void {
+    this._router.navigate(['ptap', 'home'])
   }
 }

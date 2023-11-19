@@ -42,7 +42,7 @@ export class PtapFormatComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    debugger;
+    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListFormatPTAPDTO> = {
       success: this.showCreated.bind(this),
@@ -58,7 +58,8 @@ export class PtapFormatComponent implements OnInit {
   }
 
   public showCreated(ListFormatPTAPDTO:IListFormatPTAPDTO): void {
-    debugger
+    
+    this.goHome()
     console.log(ListFormatPTAPDTO);
   }
 
@@ -79,5 +80,10 @@ export class PtapFormatComponent implements OnInit {
       alkalineInitialReading: this.createFormatPTAP.get('AlkalineInitialReading')?.value ?? '',
       nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
+  }
+
+  
+  public goHome(): void {
+    this._router.navigate(['ptap', 'home'])
   }
 }

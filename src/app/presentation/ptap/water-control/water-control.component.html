@@ -1,1 +1,35 @@
-<p>water-control works!</p>
+<button (click)="goHome()">Volver</button>
+<form [formGroup]="ICreateWaterControlDTO" (ngSubmit)="onSubmit()">
+    <section>
+        <label for="totalHours">totalHours</label>
+        <input type="text" formControlName="totalHours" placeholder="totalHours" name="totalHours" id="totalHours">
+    </section>
+    <section>
+        <label for="amountWaterCaptured">amountWaterCaptured</label>
+        <input type="text" formControlName="amountWaterCaptured" placeholder="amountWaterCaptured" name="amountWaterCaptured" id="amountWaterCaptured">
+    </section>
+    <section>
+        <label for="amountWaterSupplied">amountWaterSupplied</label>
+        <input type="text" formControlName="amountWaterSupplied" placeholder="amountWaterSupplied" name="amountWaterSupplied" id="amountWaterSupplied">
+    </section>
+    <section>
+        <label for="aluminumSulfate">aluminumSulfate</label>
+        <input type="text" formControlName="aluminumSulfate" placeholder="aluminumSulfate" name="aluminumSulfate" id="aluminumSulfate">
+    </section>
+    <section>
+        <label for="sodiumHypochlorite">sodiumHypochlorite</label>
+        <input type="text" formControlName="sodiumHypochlorite" placeholder="sodiumHypochlorite" name="sodiumHypochlorite" id="sodiumHypochlorite">
+    </section>
+    <section>
+        <label for="chlorineGas">chlorineGas</label>
+        <input type="text" formControlName="chlorineGas" placeholder="chlorineGas" name="chlorineGas" id="chlorineGas">
+    </section>
+    <section>
+        <label for="particlesPerMillion">particlesPerMillion</label>
+        <input type="text" formControlName="particlesPerMillion" placeholder="particlesPerMillion" name="particlesPerMillion" id="particlesPerMillion">
+    </section>
+
+    <button type="submit" [disabled]="!ICreateWaterControlDTO.valid" class="btn">
+        Registrar
+      </button>
+</form>

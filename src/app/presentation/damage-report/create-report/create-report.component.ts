@@ -68,7 +68,7 @@ export class CreateReportComponent implements OnInit {
       typeDamage: this.damageReport.get('typeDamage')?.value ?? '',
       nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
-    debugger;
+    
     console.log(n);
     return n;
   }

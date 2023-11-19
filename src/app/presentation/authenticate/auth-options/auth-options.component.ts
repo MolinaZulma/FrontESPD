@@ -35,7 +35,7 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    debugger;
+    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
       success: this.setToken.bind(this),
