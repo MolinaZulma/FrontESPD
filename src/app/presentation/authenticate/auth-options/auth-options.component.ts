@@ -51,7 +51,7 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   private setToken(tokenObject: IListTokenDTO): void {
-    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);
+    sessionStorage.setItem('usetInfo', JSON.stringify(tokenObject.data));
     this._router.navigate(['ptap']);
   }
 

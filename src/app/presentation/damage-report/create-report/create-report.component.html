@@ -1,0 +1,23 @@
+<form [formGroup]="damageReport" (ngSubmit)="onSubmit()" class="google-form">
+    <section>
+        <label for="addressDamage">addressDamage</label>
+        <input type="text" formControlName="addressDamage" name="" id="" placeholder="addressDamage" required>
+    </section>
+    <section>
+        <label for="descriptionDamage">descriptionDamage</label>
+        <input type="text" formControlName="descriptionDamage" name="" id="" placeholder="descriptionDamage" required>
+    </section>
+    <section>
+        <label for="image">image</label>
+        <input type="text" formControlName="image" name="" id="" placeholder="image" required>
+    </section>
+    <section>
+        <label for="trueInformation">trueInformation</label>
+        <input type="text" formControlName="trueInformation" name="" id="" placeholder="trueInformation" required>
+    </section>
+    <section>
+        <label for="typeDamage">typeDamage</label>
+        <input type="text" formControlName="typeDamage" name="" id="" placeholder="typeDamage" required>
+    </section>
+    <button type="submit" [disabled]="!damageReport.valid" class="btn ">Crear</button>
+</form>
