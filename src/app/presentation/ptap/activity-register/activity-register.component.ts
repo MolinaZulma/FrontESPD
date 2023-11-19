@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ICreateActivityDTO } from 'src/app/application/DTO/activityLogs/ICreateActivityDTO';
 import { IListActivityDTO } from 'src/app/application/DTO/activityLogs/IListActivityDTO';
 import { ActivityRegisterService } from 'src/app/application/features/activityRegister/command/activity-register.service';
@@ -22,6 +23,7 @@ export class ActivityRegisterComponent implements OnInit {
 
   constructor(
     private readonly _router: Router,
+    private readonly _toastr: ToastrService,
     private readonly _formBuilder: FormBuilder,
     private readonly _httpMediator: HttpMediator
   ) {}
@@ -54,7 +56,7 @@ export class ActivityRegisterComponent implements OnInit {
   }
 
   public showCreated(iListActivityDTO: IListActivityDTO): void {
-    console.log(iListActivityDTO);
+    this._toastr.success('Registro de actividad cargada', 'Exitoso!');
     this.goHome()
   }
 
