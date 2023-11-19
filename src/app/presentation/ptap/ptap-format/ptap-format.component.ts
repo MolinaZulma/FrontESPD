@@ -38,7 +38,6 @@ export class PtapFormatComponent implements OnInit {
       ParticlesPerMillion: ['', [Validators.required]],
       AlkalineFinalReading: ['', [Validators.required]],
       AlkalineInitialReading: ['', [Validators.required]],
-      NationalIdentificationNumber: ['', [Validators.required]],
     });
   }
 
@@ -63,7 +62,7 @@ export class PtapFormatComponent implements OnInit {
 
   private getAuthenticateDTO(): ICreateFormatPTAP {
     return {
-      IdPlant: this.createFormatPTAP.get('IdPlant')?.value ?? '',
+      IdPlant: 1, // ptap
       Alkaline: this.createFormatPTAP.get('Alkaline')?.value ?? '',
       TypeWater: this.createFormatPTAP.get('TypeWater')?.value ?? '',
       ChlorineGas: this.createFormatPTAP.get('ChlorineGas')?.value ?? '',
@@ -74,10 +73,7 @@ export class PtapFormatComponent implements OnInit {
       ParticlesPerMillion: this.createFormatPTAP.get('ParticlesPerMillion')?.value ?? '',
       AlkalineFinalReading: this.createFormatPTAP.get('AlkalineFinalReading')?.value ?? '',
       AlkalineInitialReading: this.createFormatPTAP.get('AlkalineInitialReading')?.value ?? '',
-      NationalIdentificationNumber: this.createFormatPTAP.get('NationalIdentificationNumber')?.value ?? '',
+      NationalIdentificationNumber: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
     };
   }
 }
-
-// FormatPTAP
-// ICreateFormatPTAP

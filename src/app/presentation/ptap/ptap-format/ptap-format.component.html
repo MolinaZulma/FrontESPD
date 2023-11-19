@@ -1,7 +1,16 @@
 <form [formGroup]="createFormatPTAP" (ngSubmit)="onSubmit()">
   <section>
     <label for="TypeWater">TypeWater</label>
-    <input type="text" formControlName="TypeWater" placeholder="TypeWater" />
+    <select
+      id="tipoDanio"
+      formControlName="TypeWater"
+      title="TypeWater"
+      required
+    >
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="Potable">Potable</option>
+      <option value="Cruda">Cruda</option>
+    </select>
   </section>
   <section>
     <label for="Temperature">Temperature</label>
@@ -70,20 +79,6 @@
       formControlName="ParticlesPerMillion"
       placeholder="ParticlesPerMillion"
     />
-  </section>
-  <section>
-    <label for="NationalIdentificationNumber"
-      >NationalIdentificationNumber</label
-    >
-    <input
-      type="text"
-      formControlName="NationalIdentificationNumber"
-      placeholder="NationalIdentificationNumber"
-    />
-  </section>
-  <section>
-    <label for="IdPlant">IdPlant</label>
-    <input type="text" formControlName="IdPlant" placeholder="IdPlant" />
   </section>
 
   <button type="submit" [disabled]="!createFormatPTAP.valid" class="btn">
