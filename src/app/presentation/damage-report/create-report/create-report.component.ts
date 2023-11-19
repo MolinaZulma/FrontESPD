@@ -32,17 +32,15 @@ export class CreateReportComponent implements OnInit {
 
   public initForm(): void {
     this.damageReport = this._formBuilder.group({
-      addressDamage: ['', Validators.required, Validators.minLength(5)],
-      descriptionDamage: ['', Validators.required, Validators.minLength(5)],
-      image: ['', Validators.required, Validators.minLength(5)],
-      trueInformation: ['', Validators.required, Validators.minLength(5)],
-      typeDamage: ['', Validators.required, Validators.minLength(5)],
-      idUser: ['', Validators.required, Validators.minLength(5)],
+      addressDamage: ['', [Validators.required, ]],
+      descriptionDamage: ['', [Validators.required, ]],
+      image: ['', [Validators.required, ]],
+      trueInformation: ['', [Validators.required, ]],
+      typeDamage: ['', [Validators.required, ]],
     });
   }
 
   public onSubmit(): void {
-    debugger;
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListDamageDTO> = {
       success: this.showCreated.bind(this),
@@ -68,7 +66,7 @@ export class CreateReportComponent implements OnInit {
       image: this.damageReport.get('image')?.value ?? '',
       trueInformation: this.damageReport.get('trueInformation')?.value ?? '',
       typeDamage: this.damageReport.get('typeDamage')?.value ?? '',
-      idUser: this.damageReport.get('idUser')?.value ?? '',
+      idUser: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
     };
   }
 }
