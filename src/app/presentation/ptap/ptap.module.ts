@@ -8,7 +8,7 @@ import { PtapFormatComponent } from './ptap-format/ptap-format.component';
 import { WaterControlComponent } from './water-control/water-control.component';
 import { ActivityRegisterComponent } from './activity-register/activity-register.component';
 import { JardFormatComponent } from './jard-format/jard-format.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +17,8 @@ import { JardFormatComponent } from './jard-format/jard-format.component';
     PtapFormatComponent,
     WaterControlComponent,
     ActivityRegisterComponent,
-    JardFormatComponent
+    JardFormatComponent,
   ],
-  imports: [
-    CommonModule,
-    PtapRoutingModule
-  ]
+  imports: [CommonModule, PtapRoutingModule, FormsModule, ReactiveFormsModule],
 })
-export class PtapModule { }
+export class PtapModule {}

@@ -1,1 +1,92 @@
-<p>ptap-format works!</p>
+<form [formGroup]="createFormatPTAP" (ngSubmit)="onSubmit()">
+  <section>
+    <label for="TypeWater">TypeWater</label>
+    <input type="text" formControlName="TypeWater" placeholder="TypeWater" />
+  </section>
+  <section>
+    <label for="Temperature">Temperature</label>
+    <input
+      type="text"
+      formControlName="Temperature"
+      placeholder="Temperature"
+    />
+  </section>
+  <section>
+    <label for="AlkalinityPh">AlkalinityPh</label>
+    <input
+      type="text"
+      formControlName="AlkalinityPh"
+      placeholder="AlkalinityPh"
+    />
+  </section>
+  <section>
+    <label for="AlkalineChlorine">AlkalineChlorine</label>
+    <input
+      type="text"
+      formControlName="AlkalineChlorine"
+      placeholder="AlkalineChlorine"
+    />
+  </section>
+  <section>
+    <label for="AlkalineInitialReading">AlkalineInitialReading</label>
+    <input
+      type="text"
+      formControlName="AlkalineInitialReading"
+      placeholder="AlkalineInitialReading"
+    />
+  </section>
+  <section>
+    <label for="AlkalineFinalReading">AlkalineFinalReading</label>
+    <input
+      type="text"
+      formControlName="AlkalineFinalReading"
+      placeholder="AlkalineFinalReading"
+    />
+  </section>
+  <section>
+    <label for="AlkalineTotal">AlkalineTotal</label>
+    <input
+      type="text"
+      formControlName="AlkalineTotal"
+      placeholder="AlkalineTotal"
+    />
+  </section>
+  <section>
+    <label for="Alkaline">Alkaline</label>
+    <input type="text" formControlName="Alkaline" placeholder="Alkaline" />
+  </section>
+  <section>
+    <label for="ChlorineGas">ChlorineGas</label>
+    <input
+      type="text"
+      formControlName="ChlorineGas"
+      placeholder="ChlorineGas"
+    />
+  </section>
+  <section>
+    <label for="ParticlesPerMillion">ParticlesPerMillion</label>
+    <input
+      type="text"
+      formControlName="ParticlesPerMillion"
+      placeholder="ParticlesPerMillion"
+    />
+  </section>
+  <section>
+    <label for="NationalIdentificationNumber"
+      >NationalIdentificationNumber</label
+    >
+    <input
+      type="text"
+      formControlName="NationalIdentificationNumber"
+      placeholder="NationalIdentificationNumber"
+    />
+  </section>
+  <section>
+    <label for="IdPlant">IdPlant</label>
+    <input type="text" formControlName="IdPlant" placeholder="IdPlant" />
+  </section>
+
+  <button type="submit" [disabled]="!createFormatPTAP.valid" class="btn">
+    Crear
+  </button>
+</form>
