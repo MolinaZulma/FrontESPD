@@ -1,1 +1,96 @@
-<p>activity-register works!</p>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"
+        ><img
+          src="/src/assets/images/escudo.png"
+          alt="Escudo de Támesis"
+          class="img"
+      /></a>
+      <a href="index.html"
+        ><img src="/src/assets/images/logo.png" alt="Logo ESPD" class="img"
+      /></a>
+    </div>
+    <div>
+      <a href="inicioSesion.html">
+        <img
+          src="/src/assets/images/usuario.png"
+          alt="Imagen de usuario"
+          class="imgUsuario"
+        />
+      </a>
+    </div>
+  </header>
+
+  <h1>Registro de Lavado y Mantenimiento de Filtros</h1>
+  <form [formGroup]="ICreateActivityDTO" (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        <td><label for="text">Actividad</label></td>
+        <td>
+          <select id="tipoDanio" formControlName="TypeActivity" title="TypeWater" required >
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Lavado">Lavado</option>
+            <option value="Mantenimiento de Filtros">Mantenimiento de Filtros</option>
+            <option value="Lavado y mantenimiento de Filtros">Lavado y mantenimiento de Filtros</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="text">Observaciones</label></td>
+        <td>
+          <input
+            type="text"
+            formControlName="Observations"
+            placeholder="Observations"
+            id="text"
+            name="estado"
+            value="observaciones"
+          />
+        </td>
+      </tr>
+    </table>
+    <div class="containerButton">
+      <button type="submit" [disabled]="!ICreateActivityDTO.valid" class="btn">
+        Registrar
+      </button>
+    </div>
+  </form>
+
+  <div class="containerBoton">
+    <button class="button" id="generarPDF">
+      <img src="assets/images/pdf.png" alt="" />
+    </button>
+    <button class="button" id="miFormulario">
+      <img src="assets/images/excel.png" alt="" />
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="partFooter">
+      <a href="index.html"><img src="assets/images/escudo.png" alt="" /></a>
+    </div>
+    <div class="partFooter">
+      <a href="index.html"><img src="assets/images/logo.png" alt="" /></a>
+    </div>
+    <div class="partFooter">
+      <h4>Redes Sociales</h4>
+      <div class="social-media">
+        <a href="https://www.facebook.com/espd.tamesis">
+          <img src="assets/images/facebook (1).png" alt="" />
+        </a>
+        <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
+          <img src="assets/images/youtube.png" alt="" />
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+  <script>
+    botonExcel.js;
+  </script>
+  <script src="/controllers/actividades.controller.js" type="module"></script>
+</body>

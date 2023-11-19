@@ -66,7 +66,7 @@ export class CreateReportComponent implements OnInit {
       image: sessionStorage['DamageImage'],
       trueInformation: trueInformationChecked ? 'true' : 'false',
       typeDamage: this.damageReport.get('typeDamage')?.value ?? '',
-      nationalIdentificationNumber: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
+      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
     debugger;
     console.log(n);

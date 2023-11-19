@@ -73,7 +73,7 @@ export class PtapFormatComponent implements OnInit {
       ParticlesPerMillion: this.createFormatPTAP.get('ParticlesPerMillion')?.value ?? '',
       AlkalineFinalReading: this.createFormatPTAP.get('AlkalineFinalReading')?.value ?? '',
       AlkalineInitialReading: this.createFormatPTAP.get('AlkalineInitialReading')?.value ?? '',
-      NationalIdentificationNumber: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
+      NationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
   }
 }

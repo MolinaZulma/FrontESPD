@@ -1,12 +1,7 @@
 <form [formGroup]="createFormatPTAP" (ngSubmit)="onSubmit()">
   <section>
     <label for="TypeWater">TypeWater</label>
-    <select
-      id="tipoDanio"
-      formControlName="TypeWater"
-      title="TypeWater"
-      required
-    >
+    <select id="tipoDanio" formControlName="TypeWater" title="TypeWater" required >
       <option value="" disabled selected>Selecciona una opción</option>
       <option value="Potable">Potable</option>
       <option value="Cruda">Cruda</option>
