@@ -14,6 +14,7 @@ export class JarFormatService extends BaseHttpClient {
     super(http);
   }
 
-  public CreateJar = (CreateJarDTO: ICreateJarDTO): Observable<IListJarDTO> =>
-    super.post(CreateJarDTO, this.endPoints.JarFormatForm());
+  public CreateJar(CreateJarDTO: ICreateJarDTO): Observable<IListJarDTO> {
+    return super.post(CreateJarDTO, this.endPoints.JarFormatForm());
+  }
 }

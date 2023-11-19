@@ -14,9 +14,6 @@ export class ActivityRegisterService extends BaseHttpClient {
   }
 
   public createActivity(CreateActivityDTO: ICreateActivityDTO): Observable<IListActivityDTO> {
-    console.log(CreateActivityDTO);
-    
-    debugger
     return super.post(CreateActivityDTO, this.endPoints.ActivityLogsForm());
   }
 }

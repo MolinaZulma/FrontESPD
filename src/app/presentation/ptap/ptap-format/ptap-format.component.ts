@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ICreateFormatPTAP } from 'src/app/application/DTO/formatPTAP/ICreateFormatPTAPDTO';
-import { AuthCommandService } from 'src/app/application/features/auth/command/auth-command.service';
 import { CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks,} from 'src/app/application/meadiator/HttpMediator';
+import { FormatPTAPService } from 'src/app/application/features/formatPTAP/command/format-ptap.service';
+import { IListFormatPTAPDTO } from 'src/app/application/DTO/formatPTAP/IListFormatPTAPDTO';
 
 @Component({
   selector: 'app-ptap-format',
@@ -28,7 +29,6 @@ export class PtapFormatComponent implements OnInit {
   private initForm(): void {
     this.createFormatPTAP = this._formBuilder.group({
       Alkaline: ['', [Validators.required]],
-      IdPlant: ['', [Validators.required]],
       TypeWater: ['', [Validators.required]],
       ChlorineGas: ['', [Validators.required]],
       Temperature: ['', [Validators.required]],
@@ -44,36 +44,40 @@ export class PtapFormatComponent implements OnInit {
   public onSubmit(): void {
     debugger;
     this.errorMessage = null;
-    const callbacks: HttpMediatorCallbacks<any> = {
+    const callbacks: HttpMediatorCallbacks<IListFormatPTAPDTO> = {
       success: this.showCreated.bind(this),
       error: this.handleError.bind(this),
     };
-    const params: CommandParamsWithPayload<any, any> = {
-      commandClass: AuthCommandService,
-      method: AuthCommandService.prototype.authenticate,
+    const params: CommandParamsWithPayload<ICreateFormatPTAP, IListFormatPTAPDTO> = {
+      commandClass: FormatPTAPService,
+      method: FormatPTAPService.prototype.CreateFormatPTAP,
       data: this.getAuthenticateDTO(),
       callbacks,
     };
     this._httpMediator.execWithPayload(params);
   }
 
-  public showCreated(): void {}
+  public showCreated(ListFormatPTAPDTO:IListFormatPTAPDTO): void {
+    debugger
+    console.log(ListFormatPTAPDTO);
+  }
+
   public handleError(): void {}
 
   private getAuthenticateDTO(): ICreateFormatPTAP {
     return {
-      IdPlant: 1, // ptap
-      Alkaline: this.createFormatPTAP.get('Alkaline')?.value ?? '',
-      TypeWater: this.createFormatPTAP.get('TypeWater')?.value ?? '',
-      ChlorineGas: this.createFormatPTAP.get('ChlorineGas')?.value ?? '',
-      Temperature: this.createFormatPTAP.get('Temperature')?.value ?? '',
-      AlkalinityPh: this.createFormatPTAP.get('AlkalinityPh')?.value ?? '',
-      AlkalineTotal: this.createFormatPTAP.get('AlkalineTotal')?.value ?? '',
-      AlkalineChlorine: this.createFormatPTAP.get('AlkalineChlorine')?.value ?? '',
-      ParticlesPerMillion: this.createFormatPTAP.get('ParticlesPerMillion')?.value ?? '',
-      AlkalineFinalReading: this.createFormatPTAP.get('AlkalineFinalReading')?.value ?? '',
-      AlkalineInitialReading: this.createFormatPTAP.get('AlkalineInitialReading')?.value ?? '',
-      NationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
+      idPlant: 1, // ptap
+      alkaline: this.createFormatPTAP.get('Alkaline')?.value ?? '',
+      typeWater: this.createFormatPTAP.get('TypeWater')?.value ?? '',
+      chlorineGas: this.createFormatPTAP.get('ChlorineGas')?.value ?? '',
+      temperature: this.createFormatPTAP.get('Temperature')?.value ?? '',
+      alkalinityPh: this.createFormatPTAP.get('AlkalinityPh')?.value ?? '',
+      alkalineTotal: this.createFormatPTAP.get('AlkalineTotal')?.value ?? '',
+      alkalineChlorine: this.createFormatPTAP.get('AlkalineChlorine')?.value ?? '',
+      particlesPerMillion: this.createFormatPTAP.get('ParticlesPerMillion')?.value ?? '',
+      alkalineFinalReading: this.createFormatPTAP.get('AlkalineFinalReading')?.value ?? '',
+      alkalineInitialReading: this.createFormatPTAP.get('AlkalineInitialReading')?.value ?? '',
+      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
   }
 }

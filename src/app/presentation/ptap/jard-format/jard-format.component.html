@@ -1,1 +1,15 @@
-<p>jard-format works!</p>
+<form [formGroup]="JardFormat" (ngSubmit)="onSubmit()">
+    <section>
+        <label for="jarConcentration">jarConcentration</label>
+        <input type="text" formControlName="jarConcentration" placeholder="jarConcentration">
+    </section>
+    <section>
+        <label for="jarOptime">jarOptime</label>
+        <input type="text" formControlName="jarOptime" placeholder="jarOptime">
+    </section>
+    <section>
+        <label for="phJar">phJar</label>
+        <input type="text" formControlName="phJar" placeholder="phJar">
+    </section>
+    <button type="submit" [disabled]="!JardFormat.valid" class="btn">Enviar</button>
+</form>
