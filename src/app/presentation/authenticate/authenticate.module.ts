@@ -7,7 +7,7 @@ import { AuthOptionsComponent } from './auth-options/auth-options.component';
 import { SingnInComponent } from './singn-in/singn-in.component';
 import { SingnUpComponent } from './singn-up/singn-up.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +15,13 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     AuthOptionsComponent,
     SingnInComponent,
     SingnUpComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
   ],
   imports: [
     CommonModule,
-    AuthenticateRoutingModule
-  ]
+    AuthenticateRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class AuthenticateModule { }
+export class AuthenticateModule {}

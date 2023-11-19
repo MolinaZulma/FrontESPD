@@ -11,5 +11,6 @@ export class EndPointRepository {
 
   public getAll = (): string => `${this._baseUrl}/Account/users/getAll`;
   public authenticate = (): string => `${this._baseUrl}/Account/authenticate`;
+  public damageReport = (): string => `${this._baseUrl}/DamageReport`;
   
 }

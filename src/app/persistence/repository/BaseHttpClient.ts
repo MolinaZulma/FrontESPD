@@ -18,8 +18,8 @@ export abstract class BaseHttpClient {
     return this.http.get<ISerialize<T>>(endPoint);
   }
 
-  protected post<T>(param: object, endPoint: string): Observable<ISerialize<T>> {
-    return this.http.post<ISerialize<T>>(endPoint, param);
+  protected post<T>(param: object, endPoint: string): Observable<T> {
+    return this.http.post<T>(endPoint, param);
   }
 
   protected put<T>(endPoint: string, instance: object): Observable<ISerialize<T>> {
