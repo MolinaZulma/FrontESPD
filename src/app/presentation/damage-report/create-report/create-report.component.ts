@@ -66,7 +66,7 @@ export class CreateReportComponent implements OnInit {
       image: this.damageReport.get('image')?.value ?? '',
       trueInformation: this.damageReport.get('trueInformation')?.value ?? '',
       typeDamage: this.damageReport.get('typeDamage')?.value ?? '',
-      idUser: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
+      nationalIdentificationNumber: JSON.parse(sessionStorage['usetInfo']).nationalIdentificationNumber,
     };
   }
 }

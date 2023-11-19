@@ -13,6 +13,6 @@ export interface Data {
     image:             string;
     trueInformation:   string;
     typeDamage:        string;
-    idUser:            string;
+    nationalIdentificationNumber:            string;
     userFullName:      null;
 }

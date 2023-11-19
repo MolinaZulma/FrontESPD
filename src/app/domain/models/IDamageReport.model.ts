@@ -4,5 +4,5 @@ export interface IDamageReport {
   image:             string;
   trueInformation:   string;
   typeDamage:        string;
-  idUser:            string;
+  nationalIdentificationNumber:            string;
 }
