@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ICreateWaterControlDTO } from 'src/app/application/DTO/waterControlForm/ICreateWaterControlDTO';
+
 import { IListWaterControlDTO } from 'src/app/application/DTO/waterControlForm/IListWaterControlDTO';
+import { ICreateWaterControlDTO } from 'src/app/application/DTO/waterControlForm/ICreateWaterControlDTO';
 import { WaterControlService } from 'src/app/application/features/waterControl/command/water-control.service';
 import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload } from 'src/app/application/meadiator/HttpMediator';
 
