@@ -68,7 +68,49 @@
     </button>
   </div>
 
-  <!-- Footer -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type of Activity</th>
+        <th>Observations</th>
+        <th>National Identification Number</th>
+        <th>User Full Name</th>
+        <th>Name of Plant</th>
+        <th>Created Date</th>
+        <th>Last Modified Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <style>
+        tr:hover {
+          background-color: rgb(155, 155, 155);
+        }
+      </style>
+      <tr (click)="openDetailModal(activity)" *ngFor="let activity of ListActivityDTO" >
+        <td>{{ activity.id }} </td>
+        <td>{{ activity.typeActivity }}</td>
+        <td>{{ activity.observations }}</td>
+        <td>{{ activity.nationalIdentificationNumber }}</td>
+        <td>{{ activity.userFullName }}</td>
+        <td>{{ activity.namePlant }}</td>
+        <td>{{ activity.createdDate }}</td>
+        <td>{{ activity.lastModifiedDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+  <div *ngIf="this.showModal" class="modal">
+    <h2>Activity Details</h2>
+    <p><strong>ID:</strong> {{ selectedActivity?.id }}</p>
+    <p><strong>Type of Activity:</strong> {{ selectedActivity?.typeActivity }}</p>
+    <p><strong>Observations:</strong> {{ selectedActivity?.observations }}</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+  
+
+
   <footer>
     <div class="partFooter">
       <a href="index.html"><img src="assets/images/escudo.png" alt="" /></a>
@@ -88,10 +130,5 @@
       </div>
     </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
-  <script>
-    botonExcel.js;
-  </script>
-  <script src="/controllers/actividades.controller.js" type="module"></script>
 </body>
+

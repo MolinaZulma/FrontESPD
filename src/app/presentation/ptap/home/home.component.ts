@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private readonly _router: Router) {}
+  public readonly isPtar: boolean
+
+  constructor(private readonly _router: Router) {
+    this.isPtar = true
+  }
 
   public ngOnInit(): void {}
 

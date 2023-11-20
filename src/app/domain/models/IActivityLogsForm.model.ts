@@ -1,8 +1,8 @@
 export interface IActivityLogsForm {
-  TypeActivity: string;
-  Observations: string;
-  NationalIdentificationNumber: string;
-  IdUserNavigation: string;
-  IdPlant: number;
-  Plant: number;
+  typeActivity: string;
+  observations: string;
+  nationalIdentificationNumber: string;
+  idUserNavigation: string;
+  idPlant: number;
+  plant: number;
 }

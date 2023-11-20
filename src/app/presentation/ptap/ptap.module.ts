@@ -9,6 +9,7 @@ import { WaterControlComponent } from './water-control/water-control.component';
 import { ActivityRegisterComponent } from './activity-register/activity-register.component';
 import { JardFormatComponent } from './jard-format/jard-format.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivityDetailModalComponent } from './activity-detail-modal/activity-detail-modal.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WaterControlComponent,
     ActivityRegisterComponent,
     JardFormatComponent,
+    ActivityDetailModalComponent,
   ],
   imports: [CommonModule, PtapRoutingModule, FormsModule, ReactiveFormsModule],
 })
