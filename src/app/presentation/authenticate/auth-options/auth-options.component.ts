@@ -71,7 +71,10 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   public renderSignupForm(): void {
-    this._router.navigate(['auth', 'singn-up']);
+
+    console.log(5);
+    
+    this._router.navigate(['auth', 'create']);
   }
 }
 

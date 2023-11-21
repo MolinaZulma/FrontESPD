@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '',
     component: AuthenticateComponent,
     children: [
-      { path: 'singn-up', component: SingnUpComponent },
+      { path: 'create', component: SingnUpComponent },
       { path: 'singn-in', component: SingnInComponent },
       { path: 'password-reset', component: PasswordResetComponent },
       { path: 'auth-options', component: AuthOptionsComponent },

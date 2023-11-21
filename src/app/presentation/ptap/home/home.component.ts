@@ -27,4 +27,8 @@ export class HomeComponent implements OnInit {
   public ptapFormat(): void {
     this._router.navigate(['ptap', 'ptap-format']);
   }
+
+  public dashboard(): void {
+    this._router.navigate(['ptap', 'dashboard']);
+  }
 }

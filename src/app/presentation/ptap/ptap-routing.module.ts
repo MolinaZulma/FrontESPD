@@ -6,6 +6,7 @@ import { ActivityRegisterComponent } from './activity-register/activity-register
 import { PtapFormatComponent } from './ptap-format/ptap-format.component';
 import { WaterControlComponent } from './water-control/water-control.component';
 import { JardFormatComponent } from './jard-format/jard-format.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'ptap-format', component: PtapFormatComponent },
       { path: 'water-control', component: WaterControlComponent },
       { path: 'jard-format', component: JardFormatComponent },
+      { path: 'dashboard', component: DashboardComponent },
     ],
   },
 ];
