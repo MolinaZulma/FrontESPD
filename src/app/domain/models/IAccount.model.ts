@@ -12,11 +12,3 @@ export interface IAccountModel {
     isVerified:                   boolean;
 
 }
-
-
-
-// GET:  nationalIdentificationNumber email userName phoneNumber nameRole
-// POST:  nationalIdentificationNumber email userName password confirmPassword fullName phoneNumber nameRole
-// PUT: email userName password confirmPassword fullName phoneNumber nameRole
-
-// DTO = Data transfer Object 
