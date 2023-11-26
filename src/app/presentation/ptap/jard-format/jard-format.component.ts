@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { ICreateJarDTO } from 'src/app/application/DTO/jarFormat/ICreateJarDTO';
 import { IListJarDTO } from 'src/app/application/DTO/jarFormat/IListJarDTO';
 import { JarFormatService } from 'src/app/application/features/jarFormat/jar-format.service';
-import { CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 'src/app/application/meadiator/HttpMediator';
+import { JardFormatQueryService } from 'src/app/application/features/jarFormat/query/jard-format-query.service';
+import { CommandParamsNoPayload, CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 'src/app/application/meadiator/HttpMediator';
+import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 
 @Component({
   selector: 'app-jard-format',
@@ -14,6 +16,11 @@ import { CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 's
 export class JardFormatComponent implements OnInit {
   public JardFormat!: FormGroup;
   public errorMessage!: string | null;
+  public iListJarDTO!: IListJarDTO[]
+
+  public showModal: boolean = false
+  public selectedActivity: IListJarDTO | null = null;
+
 
   constructor(
     private readonly _router: Router,
@@ -24,6 +31,7 @@ export class JardFormatComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initForm();
+    this.getIListJardFormat()
   }
 
   private initForm(): void {
@@ -73,4 +81,62 @@ export class JardFormatComponent implements OnInit {
   public goHome(): void {
     this._router.navigate(['ptap', 'home'])
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  private getIListJardFormat(): void {
+    const callbacks: HttpMediatorCallbacks<ISerialize<IListJarDTO>> = {
+      success: this.setList.bind(this),
+      error: this.handleError.bind(this),
+    };
+    const params: CommandParamsNoPayload<ISerialize<IListJarDTO>> = {
+      commandClass: JardFormatQueryService,
+      method: JardFormatQueryService.prototype.getListJardFormat,
+      callbacks,
+    };
+    this._httpMediator.execNoPayload(params);
+  }
+
+  public setList(IListJarDTO: ISerialize<IListJarDTO>): void {
+    console.log(IListJarDTO);
+    
+    this.iListJarDTO = IListJarDTO.data;
+  }
+
+  public openDetailModal(activity: IListJarDTO): void {
+    this.showModal = true
+    this.selectedActivity = activity;
+  }
+
+  public closeModal(): void {
+    this.showModal = false
+    this.selectedActivity = null;
+  }
+
+
+
+
+
+
+
+
+
+
 }

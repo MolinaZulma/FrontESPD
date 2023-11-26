@@ -1,40 +1,44 @@
+<button (click)="goHome()">Volver</button>
 <header>
     <h1>Panel de Administrador</h1>
-    <p>Bienvenido, [Nombre del Administrador]</p>
+    <p>Bienvenido, {{ userName }}</p>
 </header>
-
 <nav>
     <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#">Procesos PTAP</a></li>
-        <li><a href="#">Procesos PTAR</a></li>
-        <li><a href="#">Reportes de quejas</a></li>
-        <li><a href="#">Documentos</a></li>
-        <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Configuración</a></li>
-        <li><a href="#">Salir</a></li>
+        <li (click)="ptapFormat()">Inicio</li>
+        <li (click)="ptapFormat()">Procesos PTAP</li>
+        <li (click)="ptapFormat()">Procesos PTAR</li>
+        <li (click)="ptapFormat()">Reportes de quejas</li>
+        <li (click)="ptapFormat()">Documentos</li>
+        <li (click)="ptapFormat()">Usuarios</li>
+        <li (click)="ptapFormat()">Configuración</li>
+        <li (click)="ptapFormat()">Salir</li>
     </ul>
 </nav>
     
 <div class="container">
     <div class="button-container">
-        <h4><a href="dependencias_agua_potable.html"><img src="/src/assets/images/agua.png" alt="Dependencias de Agua Potable"></a>Agua Potable</h4>
-        <h4><a href="dependencias_agua_residual.html"><img src="/src/assets/images/alcantarilla.png" alt="Dependencias de Agua Residual"></a>Agua Residual</h4>
-        <h4><a href="usuarios.html"><img src="/src/assets/images/usuarios.png" alt="Usuarios"></a>Usuarios</h4>
-</div>
+        <button (click)="goHome()">Crear reporte</button>
+    </div>
     <div class="button-container">
-        <h4><a href="reportes_quejas.html"><img src="/src/assets/images/queja.png" alt="Reportes de Quejas"></a>Reportes Daños</h4>
-        <h4><a href="documentos.html"><img src="/src/assets/images/archivo-doc.png" alt=""></a>Documentos</h4>
-        <h4><a href="agregar_usuario.html"><img src="/src/assets/images/agregar-usuario.png" alt="Agregar Usuario"></a>Agregar Usuario</h4>
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/agua.png" alt="Dependencias de Agua Potable">Agua Potable</h4>
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/alcantarilla.png" alt="Dependencias de Agua Residual">Agua Residual</h4>
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/usuarios.png" alt="Usuarios">Usuarios</h4>
+    </div>
+    <div class="button-container">
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/queja.png" alt="Reportes de Quejas">Reportes Daños</h4>
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/archivo-doc.png" alt="">Documentos</h4>
+        <h4 style="display: flex; flex-direction: column;"><img src="../../../../assets/images/agregar-usuario.png" alt="Agregar Usuario">Agregar Usuario</h4>
     </div>
 </div>
 
 <footer>
     <div class="partFooter">
-        <a href="index.html"><img src="/src/assets/images/escudo.png" alt=""></a>
+        <!-- <a href="index.html"><img src="../../../../assets/images/escudo.png" alt=""></a> -->
+        <a href="index.html"><img src="../../../../assets/images/escudo.png" alt=""></a>
     </div>
     <div class="partFooter">
-        <a href="index.html"><img src="/src/assets/images/logo.png" alt=""></a>
+        <a href="index.html"><img src="../../../../assets/images/logo.png" alt=""></a>
     </div>
     <div class="partFooter">
         <h4>Servicios</h4>
@@ -46,10 +50,10 @@
         <h4>Redes Sociales</h4>
         <div class="social-media">
             <a href="https://www.facebook.com/espd.tamesis">
-                <img src="/src/assets/images/facebook (1).png" alt="">
+                <img src="../../../../assets/images/facebook (1).png" alt="">
             </a>
             <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
-                <img src="/src/assets/images/youtube.png" alt="">
+                <img src="../../../../assets/images/youtube.png" alt="">
             </a>
         </div>
     </div>

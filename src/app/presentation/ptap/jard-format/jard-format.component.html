@@ -14,3 +14,56 @@
     </section>
     <button type="submit" [disabled]="!JardFormat.valid" class="btn">Enviar</button>
 </form>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Total Hours</th>
+        <th>Amount Water Captured</th>
+        <th>Amount Water Supplied</th>
+        <th>Aluminum Sulfate</th>
+        <th>Sodium Hypochlorite</th>
+        <th>Chlorine Gas</th>
+        <th>Particles Per Million</th>
+        <th>National Identification Number</th>
+        <th>ID Plant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <style>
+        tr:hover {
+          background-color: rgb(155, 155, 155);
+        }
+      </style>
+      <tr (click)="openDetailModal(activity)" *ngFor="let activity of iListJarDTO">
+
+        <td> {{ activity.id }} </td> 
+        <td> {{ activity.jarConcentration }} </td> 
+        <td> {{ activity.jarOptime }} </td> 
+        <td> {{ activity.phJar }} </td> 
+        <td> {{ activity.nationalIdentificationNumber }} </td> 
+        <td> {{ activity.userFullName }} </td> 
+        <td> {{ activity.idPlant }} </td> 
+        <td> {{ activity.namePlant }} </td> 
+
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div *ngIf="this.showModal" class="modal">
+    <h2>Activity Details</h2>
+    
+    <p><strong> id: {{selectedActivity?.id }} </strong></p>
+    <p><strong> jarConcentration: {{selectedActivity?.jarConcentration}} </strong></p>
+    <p><strong> jarOptime: {{selectedActivity?.jarOptime}} </strong></p>
+    <p><strong> phJar: {{selectedActivity?.phJar}} </strong></p>
+    <p><strong> nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}} </strong></p>
+    <p><strong> userFullName: {{selectedActivity?.userFullName}} </strong></p>
+    <p><strong> idPlant: {{selectedActivity?.idPlant}} </strong></p>
+    <p><strong> namePlant: {{selectedActivity?.namePlant}} </strong></p>
+    
+    <button (click)="closeModal()">Close</button>
+  </div>

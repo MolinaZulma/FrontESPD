@@ -10,51 +10,27 @@
   </section>
   <section>
     <label for="Temperature">Temperature</label>
-    <input
-      type="text"
-      formControlName="Temperature"
-      placeholder="Temperature"
-    />
+    <input type="text" formControlName="Temperature" placeholder="Temperature" />
   </section>
   <section>
     <label for="AlkalinityPh">AlkalinityPh</label>
-    <input
-      type="text"
-      formControlName="AlkalinityPh"
-      placeholder="AlkalinityPh"
-    />
+    <input type="text" formControlName="AlkalinityPh" placeholder="AlkalinityPh" />
   </section>
   <section>
     <label for="AlkalineChlorine">AlkalineChlorine</label>
-    <input
-      type="text"
-      formControlName="AlkalineChlorine"
-      placeholder="AlkalineChlorine"
-    />
+    <input type="text" formControlName="AlkalineChlorine" placeholder="AlkalineChlorine" />
   </section>
   <section>
     <label for="AlkalineInitialReading">AlkalineInitialReading</label>
-    <input
-      type="text"
-      formControlName="AlkalineInitialReading"
-      placeholder="AlkalineInitialReading"
-    />
+    <input type="text" formControlName="AlkalineInitialReading" placeholder="AlkalineInitialReading" />
   </section>
   <section>
     <label for="AlkalineFinalReading">AlkalineFinalReading</label>
-    <input
-      type="text"
-      formControlName="AlkalineFinalReading"
-      placeholder="AlkalineFinalReading"
-    />
+    <input type="text" formControlName="AlkalineFinalReading" placeholder="AlkalineFinalReading" />
   </section>
   <section>
     <label for="AlkalineTotal">AlkalineTotal</label>
-    <input
-      type="text"
-      formControlName="AlkalineTotal"
-      placeholder="AlkalineTotal"
-    />
+    <input type="text" formControlName="AlkalineTotal" placeholder="AlkalineTotal" />
   </section>
   <section>
     <label for="Alkaline">Alkaline</label>
@@ -62,22 +38,88 @@
   </section>
   <section>
     <label for="ChlorineGas">ChlorineGas</label>
-    <input
-      type="text"
-      formControlName="ChlorineGas"
-      placeholder="ChlorineGas"
-    />
+    <input type="text" formControlName="ChlorineGas" placeholder="ChlorineGas" />
   </section>
   <section>
     <label for="ParticlesPerMillion">ParticlesPerMillion</label>
-    <input
-      type="text"
-      formControlName="ParticlesPerMillion"
-      placeholder="ParticlesPerMillion"
-    />
+    <input type="text" formControlName="ParticlesPerMillion" placeholder="ParticlesPerMillion" />
   </section>
 
   <button type="submit" [disabled]="!createFormatPTAP.valid" class="btn">
     Crear
   </button>
 </form>
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th> 
+      <th>typeWater</th> 
+      <th>temperature</th> 
+      <th>alkalinityPh</th> 
+      <th>alkalineChlorine</th> 
+      <th>alkalineInitialReading</th> 
+      <th>alkalineFinalReading</th> 
+      <th>alkalineTotal</th> 
+      <th>alkaline</th> 
+      <th>chlorineGas</th> 
+      <th>particlesPerMillion</th> 
+      <th>nationalIdentificationNumber</th> 
+      <th>userFullName</th> 
+      <th>idPlant</th> 
+      <th>namePlant</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <style>
+      tr:hover {
+        background-color: rgb(155, 155, 155);
+      }
+    </style>
+    <tr (click)="openDetailModal(activity)" *ngFor="let activity of iListFormatPTAPDTO">
+
+      <td>{{activity.id}}</td>
+      <td>{{activity.typeWater}}</td>
+      <td>{{activity.temperature}}</td>
+      <td>{{activity.alkalinityPh}}</td>
+      <td>{{activity.alkalineChlorine}}</td>
+      <td>{{activity.alkalineInitialReading}}</td>
+      <td>{{activity.alkalineFinalReading}}</td>
+      <td>{{activity.alkalineTotal}}</td>
+      <td>{{activity.alkaline}}</td>
+      <td>{{activity.chlorineGas}}</td>
+      <td>{{activity.particlesPerMillion}}</td>
+      <td>{{activity.nationalIdentificationNumber}}</td>
+      <td>{{activity.userFullName}}</td>
+      <td>{{activity.idPlant}}</td>
+      <td>{{activity.namePlant}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<div *ngIf="this.showModal" class="modal">
+  <h2>Activity Details</h2>
+
+  <p><strong>id:                           {{selectedActivity?.id}}</strong></p>  
+  <p><strong>typeWater :                   {{selectedActivity?.typeWater}}</strong></p>  
+  <p><strong>temperature :                 {{selectedActivity?.temperature}}</strong></p>  
+  <p><strong>alkalinityPh:                 {{selectedActivity?.alkalinityPh}}</strong></p>  
+  <p><strong>alkalineChlorine:             {{selectedActivity?.alkalineChlorine}}</strong></p>  
+  <p><strong>alkalineInitialReading:       {{selectedActivity?.alkalineInitialReading}}</strong></p>  
+  <p><strong>alkalineFinalReading:         {{selectedActivity?.alkalineFinalReading}}</strong></p>  
+  <p><strong>alkalineTotal :               {{selectedActivity?.alkalineTotal}}</strong></p>  
+  <p><strong>alkaline:                     {{selectedActivity?.alkaline}}</strong></p>  
+  <p><strong>chlorineGas :                 {{selectedActivity?.chlorineGas}}</strong></p>  
+  <p><strong>particlesPerMillion :         {{selectedActivity?.particlesPerMillion}}</strong></p>  
+  <p><strong>nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}}</strong></p>  
+  <p><strong>userFullName:                 {{selectedActivity?.userFullName}}</strong></p>  
+  <p><strong>idPlant :                     {{selectedActivity?.idPlant}}</strong></p>  
+  <p><strong>namePlant :                   {{selectedActivity?.namePlant}}</strong></p>  
+  
+  <button (click)="closeModal()">Close</button>
+</div>

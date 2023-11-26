@@ -10,17 +10,28 @@ import { ActivityRegisterComponent } from './activity-register/activity-register
 import { JardFormatComponent } from './jard-format/jard-format.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivityDetailModalComponent } from './activity-detail-modal/activity-detail-modal.component';
+import { CommonComponentModule } from '../common-component/common-component.module';
+import { HeaderComponent } from "../common-component/header/header.component";
+import { FooterComponent } from "../common-component/footer/footer.component";
 
 @NgModule({
-  declarations: [
-    PtapComponent,
-    HomeComponent,
-    PtapFormatComponent,
-    WaterControlComponent,
-    ActivityRegisterComponent,
-    JardFormatComponent,
-    ActivityDetailModalComponent,
-  ],
-  imports: [CommonModule, PtapRoutingModule, FormsModule, ReactiveFormsModule],
+    declarations: [
+        PtapComponent,
+        HomeComponent,
+        JardFormatComponent,
+        PtapFormatComponent,
+        WaterControlComponent,
+        ActivityRegisterComponent,
+        ActivityDetailModalComponent,
+    ],
+    imports: [
+        CommonModule,
+        PtapRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonComponentModule,
+        HeaderComponent,
+        FooterComponent
+    ]
 })
 export class PtapModule {}

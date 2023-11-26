@@ -7,6 +7,7 @@ import {
   HttpMediatorCallbacks,
   CommandParamsWithPayload,
 } from 'src/app/application/meadiator/HttpMediator';
+import { EnumRoles } from '../../ptap/home/home.component';
 
 @Component({
   selector: 'app-auth-options',
@@ -35,7 +36,6 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
       success: this.setToken.bind(this),
@@ -52,7 +52,14 @@ export class AuthOptionsComponent implements OnInit {
 
   private setToken(tokenObject: IListTokenDTO): void {
     sessionStorage.setItem('userInfo', JSON.stringify(tokenObject.data));
-    this._router.navigate(['ptap']);
+    const role = tokenObject.data.roles[0];
+    if (role) {
+      if (role === EnumRoles.User.toString()) {
+        this._router.navigate(['damageReport',]);
+      } else {
+        this._router.navigate(['ptap',]);
+      }
+    }
   }
 
   private getAuthenticateDTO(): ICreateTokenDTO {
@@ -71,9 +78,8 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   public renderSignupForm(): void {
-
     console.log(5);
-    
+
     this._router.navigate(['auth', 'create']);
   }
 }

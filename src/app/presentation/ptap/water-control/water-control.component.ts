@@ -5,7 +5,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IListWaterControlDTO } from 'src/app/application/DTO/waterControlForm/IListWaterControlDTO';
 import { ICreateWaterControlDTO } from 'src/app/application/DTO/waterControlForm/ICreateWaterControlDTO';
 import { WaterControlService } from 'src/app/application/features/waterControl/command/water-control.service';
-import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload } from 'src/app/application/meadiator/HttpMediator';
+import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload, CommandParamsNoPayload } from 'src/app/application/meadiator/HttpMediator';
+import { IListActivityDTO } from 'src/app/application/DTO/activityLogs/IListActivityDTO';
+import { ISerialize } from 'src/app/domain/models/ISerialize.model';
+import { WaterControlCommandService } from 'src/app/application/features/waterControl/query/water-control-command.service';
 
 @Component({
   selector: 'app-water-control',
@@ -15,6 +18,9 @@ import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload } from 's
 export class WaterControlComponent implements OnInit {
   public ICreateWaterControlDTO!: FormGroup;
   public errorMessage!: string | null;
+  public showModal: boolean = false
+  public selectedActivity: IListWaterControlDTO | null = null;
+  public iListWaterControlDTO!: IListWaterControlDTO[]
 
   constructor(
     private readonly _router: Router,
@@ -24,6 +30,7 @@ export class WaterControlComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initForm();
+    this.getIListActivityDTO()
   }
 
   private initForm(): void {
@@ -39,7 +46,6 @@ export class WaterControlComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListWaterControlDTO> = {
       success: this.showCreated.bind(this),
@@ -77,8 +83,35 @@ export class WaterControlComponent implements OnInit {
       nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
   }
+
+  private getIListActivityDTO(): void {
+    const callbacks: HttpMediatorCallbacks<ISerialize<IListWaterControlDTO>> = {
+      success: this.setList.bind(this),
+      error: this.handleError.bind(this),
+    };
+    const params: CommandParamsNoPayload<ISerialize<IListWaterControlDTO>> = {
+      commandClass: WaterControlCommandService,
+      method: WaterControlCommandService.prototype.getListWaterControlCommandService,
+      callbacks,
+    };
+    this._httpMediator.execNoPayload(params);
+  }
   
   public goHome(): void {
     this._router.navigate(['ptap', 'home'])
+  }
+
+  public setList(iListWaterControlDTO: ISerialize<IListWaterControlDTO>): void {
+    this.iListWaterControlDTO = iListWaterControlDTO.data;
+  }
+
+  public openDetailModal(activity: IListWaterControlDTO): void {
+    this.showModal = true
+    this.selectedActivity = activity;
+  }
+
+  public closeModal(): void {
+    this.showModal = false
+    this.selectedActivity = null;
   }
 }

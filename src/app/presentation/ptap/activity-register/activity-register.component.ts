@@ -67,9 +67,6 @@ export class ActivityRegisterComponent implements OnInit {
   public openDetailModal(activity: IListActivityDTO): void {
     this.showModal = true
     this.selectedActivity = activity;
-    // this.dialog.open(ActivityDetailModalComponent, {
-    //   width: '600px',
-    // });
   }
 
   public closeModal(): void {

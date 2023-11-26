@@ -1,0 +1,98 @@
+/* Estilos del footer */
+footer{
+    background: #3666cc;
+    padding: 60px 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+  }
+  
+  .partFooter{
+    width: 20%;
+    text-align: center;
+  }
+  
+  .partFooter h4{
+    color: #fbfdff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  
+  .partFooter a{
+    display: block; /*En bloque uno debajo del otro*/
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 300;
+    transition: color .3s ease-in-out;
+    margin-bottom: 10px;
+  }
+  
+  .partFooter a:hover{
+    color: #003366;
+  }
+  .partFooter img{
+    width: 60%;
+  }
+  
+  .social-media img{
+    font-size: 20px;
+    display: inline-block;
+    color: #adb6c7;
+    border: 1px solid #adb6c7;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    margin-right: 10px;
+  }
+  
+  .social-media img:hover{
+    color: #fff;
+    background-color: #fbfcfd;
+    border-color: #003366;
+  }
+  
+  
+  /* Media query para mostrar el botón de hamburguesa en pantallas pequeñas */
+  @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+        }
+    }
+  
+  @media  screen and (max-width:800px) {
+    .titulo{
+        font-size: 45px;
+    }
+  
+    /*Footer*/
+    footer{
+        justify-content: space-evenly;
+    }
+  
+    .partFooter{
+        width: 40%;
+        margin-bottom: 40px;
+    }
+  
+  }
+
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
