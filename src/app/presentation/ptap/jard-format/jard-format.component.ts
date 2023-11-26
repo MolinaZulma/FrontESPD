@@ -5,33 +5,39 @@ import { ICreateJarDTO } from 'src/app/application/DTO/jarFormat/ICreateJarDTO';
 import { IListJarDTO } from 'src/app/application/DTO/jarFormat/IListJarDTO';
 import { JarFormatService } from 'src/app/application/features/jarFormat/jar-format.service';
 import { JardFormatQueryService } from 'src/app/application/features/jarFormat/query/jard-format-query.service';
-import { CommandParamsNoPayload, CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 'src/app/application/meadiator/HttpMediator';
+import {
+  CommandParamsNoPayload,
+  CommandParamsWithPayload,
+  HttpMediator,
+  HttpMediatorCallbacks,
+} from 'src/app/application/meadiator/HttpMediator';
+import { ExcelService } from 'src/app/application/services/excel/excel.service';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 
 @Component({
   selector: 'app-jard-format',
   templateUrl: './jard-format.component.html',
-  styleUrls: ['./jard-format.component.css']
+  styleUrls: ['./jard-format.component.css'],
 })
 export class JardFormatComponent implements OnInit {
   public JardFormat!: FormGroup;
   public errorMessage!: string | null;
-  public iListJarDTO!: IListJarDTO[]
+  public iListJarDTO!: IListJarDTO[];
 
-  public showModal: boolean = false
+  public showModal: boolean = false;
   public selectedActivity: IListJarDTO | null = null;
-
 
   constructor(
     private readonly _router: Router,
     private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator
-  ) {}
+    private readonly _httpMediator: HttpMediator,
+    private readonly _excelService: ExcelService,
 
+    ) {}
 
   public ngOnInit(): void {
     this.initForm();
-    this.getIListJardFormat()
+    this.getIListJardFormat();
   }
 
   private initForm(): void {
@@ -43,7 +49,6 @@ export class JardFormatComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListJarDTO> = {
       success: this.showCreated.bind(this),
@@ -60,8 +65,8 @@ export class JardFormatComponent implements OnInit {
 
   public showCreated(iListJarDTO: IListJarDTO): void {
     console.log(iListJarDTO);
-    
-    this.goHome()
+
+    this.goHome();
   }
 
   public handleError(error: any): void {
@@ -73,33 +78,15 @@ export class JardFormatComponent implements OnInit {
       jarConcentration: this.JardFormat.get('jarConcentration')?.value ?? '',
       jarOptime: this.JardFormat.get('jarOptime')?.value ?? '',
       phJar: this.JardFormat.get('phJar')?.value ?? '',
-      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
-      idPlant: 1
+      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo'])
+        .nationalIdentificationNumber,
+      idPlant: 1,
     };
   }
 
   public goHome(): void {
-    this._router.navigate(['ptap', 'home'])
+    this._router.navigate(['ptap', 'home']);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   private getIListJardFormat(): void {
     const callbacks: HttpMediatorCallbacks<ISerialize<IListJarDTO>> = {
@@ -116,27 +103,26 @@ export class JardFormatComponent implements OnInit {
 
   public setList(IListJarDTO: ISerialize<IListJarDTO>): void {
     console.log(IListJarDTO);
-    
+
     this.iListJarDTO = IListJarDTO.data;
   }
 
   public openDetailModal(activity: IListJarDTO): void {
-    this.showModal = true
+    this.showModal = true;
     this.selectedActivity = activity;
   }
 
   public closeModal(): void {
-    this.showModal = false
+    this.showModal = false;
     this.selectedActivity = null;
   }
 
-
-
-
-
-
-
-
-
+  public downloadExcel(): void {
+    if (this.selectedActivity) {
+      this._excelService.generateExcelFile([this.selectedActivity], 'test-file').subscribe(() => {
+        console.log('Excel file generated and downloaded successfully!');
+      });
+    }
+  }
 
 }

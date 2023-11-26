@@ -77,19 +77,24 @@
 
   <div *ngIf="this.showModal" class="modal">
     <h2>Activity Details</h2>
+    <section >
+        <p><strong> id: </strong> {{selectedActivity?.id }}  </p> 
+        <p><strong> totalHours: </strong> {{selectedActivity?.totalHours }}  </p> 
+        <p><strong> amountWaterCaptured: </strong> {{selectedActivity?.amountWaterCaptured }}  </p> 
+        <p><strong> amountWaterSupplied: </strong> {{selectedActivity?.amountWaterSupplied }}  </p> 
+        <p><strong> aluminumSulfate: </strong> {{selectedActivity?.aluminumSulfate }}  </p> 
+        <p><strong> sodiumHypochlorite: </strong> {{selectedActivity?.sodiumHypochlorite }}  </p> 
+        <p><strong> chlorineGas: </strong> {{selectedActivity?.chlorineGas }}  </p> 
+        <p><strong> particlesPerMillion: </strong> {{selectedActivity?.particlesPerMillion }}  </p> 
+        <p><strong> nationalIdentificationNumber: </strong> {{selectedActivity?.nationalIdentificationNumber }}  </p> 
+        <p><strong> userFullName: </strong> {{selectedActivity?.userFullName }}  </p> 
+        <p><strong> idPlant: </strong> {{selectedActivity?.idPlant }}  </p> 
+        <p><strong> namePlant: </strong> {{selectedActivity?.namePlant }}  </p> 
 
-    <p><strong> id:                           </strong></p> {{selectedActivity?.id }} 
-    <p><strong> totalHours:                   </strong></p> {{selectedActivity?.totalHours }} 
-    <p><strong> amountWaterCaptured:          </strong></p> {{selectedActivity?.amountWaterCaptured }} 
-    <p><strong> amountWaterSupplied:          </strong></p> {{selectedActivity?.amountWaterSupplied }} 
-    <p><strong> aluminumSulfate:              </strong></p> {{selectedActivity?.aluminumSulfate }} 
-    <p><strong> sodiumHypochlorite:           </strong></p> {{selectedActivity?.sodiumHypochlorite }} 
-    <p><strong> chlorineGas:                  </strong></p> {{selectedActivity?.chlorineGas }} 
-    <p><strong> particlesPerMillion:          </strong></p> {{selectedActivity?.particlesPerMillion }} 
-    <p><strong> nationalIdentificationNumber: </strong></p> {{selectedActivity?.nationalIdentificationNumber }} 
-    <p><strong> userFullName:                 </strong></p> {{selectedActivity?.userFullName }} 
-    <p><strong> idPlant:                      </strong></p> {{selectedActivity?.idPlant }} 
-    <p><strong> namePlant:                    </strong></p> {{selectedActivity?.namePlant }} 
+    </section>
+    
+
     
     <button (click)="closeModal()">Close</button>
+    <button (click)="downloadExcel()">Download Excel</button>
   </div>

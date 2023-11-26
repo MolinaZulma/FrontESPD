@@ -13,6 +13,7 @@ import { FormatPTAPService } from 'src/app/application/features/formatPTAP/comma
 import { IListFormatPTAPDTO } from 'src/app/application/DTO/formatPTAP/IListFormatPTAPDTO';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { PtapFormatService } from 'src/app/application/features/formatPTAP/query/ptap-format.service';
+import { ExcelService } from 'src/app/application/services/excel/excel.service';
 
 @Component({
   selector: 'app-ptap-format',
@@ -30,7 +31,9 @@ export class PtapFormatComponent implements OnInit {
   constructor(
     private readonly _router: Router,
     private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator
+    private readonly _httpMediator: HttpMediator,
+    private readonly _excelService: ExcelService,
+
   ) {}
 
   public ngOnInit(): void {
@@ -125,4 +128,14 @@ export class PtapFormatComponent implements OnInit {
     this.showModal = false;
     this.selectedActivity = null;
   }
+
+  public downloadExcel(): void {
+    if (this.selectedActivity) {
+      this._excelService.generateExcelFile([this.selectedActivity], 'test-file').subscribe(() => {
+        console.log('Excel file generated and downloaded successfully!');
+      });
+    }
+  }
+
+
 }

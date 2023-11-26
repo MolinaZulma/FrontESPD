@@ -9,6 +9,7 @@ import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload, CommandP
 import { IListActivityDTO } from 'src/app/application/DTO/activityLogs/IListActivityDTO';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { WaterControlCommandService } from 'src/app/application/features/waterControl/query/water-control-command.service';
+import { ExcelService } from 'src/app/application/services/excel/excel.service';
 
 @Component({
   selector: 'app-water-control',
@@ -25,7 +26,9 @@ export class WaterControlComponent implements OnInit {
   constructor(
     private readonly _router: Router,
     private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator
+    private readonly _httpMediator: HttpMediator,
+    private readonly _excelService: ExcelService,
+
   ) {}
 
   public ngOnInit(): void {
@@ -114,4 +117,13 @@ export class WaterControlComponent implements OnInit {
     this.showModal = false
     this.selectedActivity = null;
   }
+
+  public downloadExcel(): void {
+    if (this.selectedActivity) {
+      this._excelService.generateExcelFile([this.selectedActivity], 'test-file').subscribe(() => {
+        console.log('Excel file generated and downloaded successfully!');
+      });
+    }
+  }
+
 }

@@ -46,6 +46,9 @@ export class HomeComponent implements OnInit {
   public dashboard(): void {
     this._router.navigate(['ptap', 'dashboard']);
   }
+  public damageReport(): void {
+    this._router.navigate(['ptap', 'DamageReport']);
+  }
 }
 
 export enum EnumRoles {

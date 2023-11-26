@@ -55,15 +55,18 @@
 
   <div *ngIf="this.showModal" class="modal">
     <h2>Activity Details</h2>
-    
-    <p><strong> id: {{selectedActivity?.id }} </strong></p>
-    <p><strong> jarConcentration: {{selectedActivity?.jarConcentration}} </strong></p>
-    <p><strong> jarOptime: {{selectedActivity?.jarOptime}} </strong></p>
-    <p><strong> phJar: {{selectedActivity?.phJar}} </strong></p>
-    <p><strong> nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}} </strong></p>
-    <p><strong> userFullName: {{selectedActivity?.userFullName}} </strong></p>
-    <p><strong> idPlant: {{selectedActivity?.idPlant}} </strong></p>
-    <p><strong> namePlant: {{selectedActivity?.namePlant}} </strong></p>
-    
+    <section >
+        <p><strong> id: {{selectedActivity?.id }} </strong></p>
+        <p><strong> jarConcentration: {{selectedActivity?.jarConcentration}} </strong></p>
+        <p><strong> jarOptime: {{selectedActivity?.jarOptime}} </strong></p>
+        <p><strong> phJar: {{selectedActivity?.phJar}} </strong></p>
+        <p><strong> nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}} </strong></p>
+        <p><strong> userFullName: {{selectedActivity?.userFullName}} </strong></p>
+        <p><strong> idPlant: {{selectedActivity?.idPlant}} </strong></p>
+        <p><strong> namePlant: {{selectedActivity?.namePlant}} </strong></p>
+        
+
+    </section>
     <button (click)="closeModal()">Close</button>
+    <button (click)="downloadExcel()">Download Excel</button>
   </div>

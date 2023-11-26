@@ -82,8 +82,13 @@
 
   <div *ngIf="this.showModal" class="modal">
     <h2>Activity Details</h2>
-    <p><strong>ID:</strong> {{ selectedActivity?.id }}</p>
-    <p><strong>Type of Activity:</strong> {{ selectedActivity?.typeActivity }}</p>
-    <p><strong>Observations:</strong> {{ selectedActivity?.observations }}</p>
+
+    <section>
+      <p><strong>ID:</strong> {{ selectedActivity?.id }}</p>
+      <p><strong>Type of Activity:</strong> {{ selectedActivity?.typeActivity }}</p>
+      <p><strong>Observations:</strong> {{ selectedActivity?.observations }}</p>
+    </section>
+      
     <button (click)="closeModal()">Close</button>
+    <button (click)="downloadExcel()">Download Excel</button>
   </div>

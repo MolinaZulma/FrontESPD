@@ -14,6 +14,6 @@ export class DamageCommandService extends BaseHttpClient {
   }
 
   public postDamage(damage: IDamageReport): Observable<IListDamageDTO> {
-    return super.post(damage, this.endPoints.damageReport());
+    return super.post(damage, this.endPoints.DamageReport());
   }
 }

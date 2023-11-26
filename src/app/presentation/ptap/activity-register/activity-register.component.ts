@@ -15,6 +15,7 @@ import {
 } from 'src/app/application/meadiator/HttpMediator';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { ActivityDetailModalComponent } from '../activity-detail-modal/activity-detail-modal.component';
+import { ExcelService } from 'src/app/application/services/excel/excel.service';
 
 @Component({
   selector: 'app-activity-register',
@@ -35,6 +36,7 @@ export class ActivityRegisterComponent implements OnInit {
     private readonly _toastr: ToastrService,
     private readonly _formBuilder: FormBuilder,
     private readonly _httpMediator: HttpMediator,
+    private readonly _excelService: ExcelService,
   ) {}
 
   public ngOnInit(): void {
@@ -125,4 +127,14 @@ export class ActivityRegisterComponent implements OnInit {
   public goHome(): void {
     this._router.navigate(['ptap', 'home'])
   }
+
+  public downloadExcel(): void {
+    if (this.selectedActivity) {
+      this._excelService.generateExcelFile([this.selectedActivity], 'test-file').subscribe(() => {
+        console.log('Excel file generated and downloaded successfully!');
+      });
+    }
+  }
+
+
 }

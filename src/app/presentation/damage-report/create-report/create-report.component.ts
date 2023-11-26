@@ -7,6 +7,7 @@ import { IListDamageDTO } from 'src/app/application/DTO/damageReport/IListDamage
 import { AuthCommandService } from 'src/app/application/features/auth/command/auth-command.service';
 import { DamageCommandService } from 'src/app/application/features/damageReport/command/damage-command.service';
 import { CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 'src/app/application/meadiator/HttpMediator';
+import { ICreateDamageReportDTO } from 'src/app/application/DTO/damageReport/ICreateDamageReportDTO';
 
 @Component({
   selector: 'app-create-report',
@@ -56,7 +57,7 @@ export class CreateReportComponent implements OnInit {
 
   public handleError(): void {}
 
-  private getAuthenticateDTO(): IDamageReport {
+  private getAuthenticateDTO(): ICreateDamageReportDTO {
     const trueInformationChecked = this.damageReport.get('trueInformation')?.value;
     const terminosChecked = this.damageReport.get('terminos')?.value; //
 
@@ -68,8 +69,6 @@ export class CreateReportComponent implements OnInit {
       typeDamage: this.damageReport.get('typeDamage')?.value ?? '',
       nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
-    
-    console.log(n);
     return n;
   }
 

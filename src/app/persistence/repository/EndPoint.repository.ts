@@ -9,12 +9,12 @@ export class EndPointRepository {
     this._baseUrl = EndPointRepository.LOCAL;
   }
 
-  public ActivityLogsForm = (): string => `${this._baseUrl}/ActivityLogsForm`;
-  public damageReport = (): string => `${this._baseUrl}/DamageReport`;
+  public User = (): string => `${this._baseUrl}/User`;
+  public DamageReport = (): string => `${this._baseUrl}/DamageReport`;
+  public getAll = (): string => `${this._baseUrl}/Account/users/getAll`;
   public JarFormatForm = (): string => `${this._baseUrl}/JarFormatForm`;
   public FormatPTAPForm = (): string => `${this._baseUrl}/FormatPTAPForm`;
   public WaterControlForm = (): string => `${this._baseUrl}/WaterControlForm`;
-  
   public authenticate = (): string => `${this._baseUrl}/Account/authenticate`;
-  public getAll = (): string => `${this._baseUrl}/Account/users/getAll`;
+  public ActivityLogsForm = (): string => `${this._baseUrl}/ActivityLogsForm`;
 }

@@ -7,6 +7,7 @@ import { PtapFormatComponent } from './ptap-format/ptap-format.component';
 import { WaterControlComponent } from './water-control/water-control.component';
 import { JardFormatComponent } from './jard-format/jard-format.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DamageReportComponent } from './damage-report/damage-report.component';
 
 const routes: Routes = [
   {
@@ -14,11 +15,12 @@ const routes: Routes = [
     component: PtapComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'activity-register', component: ActivityRegisterComponent },
-      { path: 'ptap-format', component: PtapFormatComponent },
-      { path: 'water-control', component: WaterControlComponent },
-      { path: 'jard-format', component: JardFormatComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'ptap-format', component: PtapFormatComponent },
+      { path: 'jard-format', component: JardFormatComponent },
+      { path: 'DamageReport', component: DamageReportComponent },
+      { path: 'water-control', component: WaterControlComponent },
+      { path: 'activity-register', component: ActivityRegisterComponent },
     ],
   },
 ];

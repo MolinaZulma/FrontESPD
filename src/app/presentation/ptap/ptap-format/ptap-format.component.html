@@ -104,22 +104,25 @@
 
 <div *ngIf="this.showModal" class="modal">
   <h2>Activity Details</h2>
+  <section >
+    <p><strong>id:                           {{selectedActivity?.id}}</strong></p>  
+    <p><strong>typeWater :                   {{selectedActivity?.typeWater}}</strong></p>  
+    <p><strong>temperature :                 {{selectedActivity?.temperature}}</strong></p>  
+    <p><strong>alkalinityPh:                 {{selectedActivity?.alkalinityPh}}</strong></p>  
+    <p><strong>alkalineChlorine:             {{selectedActivity?.alkalineChlorine}}</strong></p>  
+    <p><strong>alkalineInitialReading:       {{selectedActivity?.alkalineInitialReading}}</strong></p>  
+    <p><strong>alkalineFinalReading:         {{selectedActivity?.alkalineFinalReading}}</strong></p>  
+    <p><strong>alkalineTotal :               {{selectedActivity?.alkalineTotal}}</strong></p>  
+    <p><strong>alkaline:                     {{selectedActivity?.alkaline}}</strong></p>  
+    <p><strong>chlorineGas :                 {{selectedActivity?.chlorineGas}}</strong></p>  
+    <p><strong>particlesPerMillion :         {{selectedActivity?.particlesPerMillion}}</strong></p>  
+    <p><strong>nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}}</strong></p>  
+    <p><strong>userFullName:                 {{selectedActivity?.userFullName}}</strong></p>  
+    <p><strong>idPlant :                     {{selectedActivity?.idPlant}}</strong></p>  
+    <p><strong>namePlant :                   {{selectedActivity?.namePlant}}</strong></p>  
 
-  <p><strong>id:                           {{selectedActivity?.id}}</strong></p>  
-  <p><strong>typeWater :                   {{selectedActivity?.typeWater}}</strong></p>  
-  <p><strong>temperature :                 {{selectedActivity?.temperature}}</strong></p>  
-  <p><strong>alkalinityPh:                 {{selectedActivity?.alkalinityPh}}</strong></p>  
-  <p><strong>alkalineChlorine:             {{selectedActivity?.alkalineChlorine}}</strong></p>  
-  <p><strong>alkalineInitialReading:       {{selectedActivity?.alkalineInitialReading}}</strong></p>  
-  <p><strong>alkalineFinalReading:         {{selectedActivity?.alkalineFinalReading}}</strong></p>  
-  <p><strong>alkalineTotal :               {{selectedActivity?.alkalineTotal}}</strong></p>  
-  <p><strong>alkaline:                     {{selectedActivity?.alkaline}}</strong></p>  
-  <p><strong>chlorineGas :                 {{selectedActivity?.chlorineGas}}</strong></p>  
-  <p><strong>particlesPerMillion :         {{selectedActivity?.particlesPerMillion}}</strong></p>  
-  <p><strong>nationalIdentificationNumber: {{selectedActivity?.nationalIdentificationNumber}}</strong></p>  
-  <p><strong>userFullName:                 {{selectedActivity?.userFullName}}</strong></p>  
-  <p><strong>idPlant :                     {{selectedActivity?.idPlant}}</strong></p>  
-  <p><strong>namePlant :                   {{selectedActivity?.namePlant}}</strong></p>  
+  </section>
   
   <button (click)="closeModal()">Close</button>
+  <button (click)="downloadExcel()">Download Excel</button>
 </div>

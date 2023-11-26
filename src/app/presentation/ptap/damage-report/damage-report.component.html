@@ -1,0 +1,69 @@
+<style>
+  .listDamange {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px;
+    text-align: start;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 75%;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<div *ngFor="let activity of iListDamageDTO">
+  <main (click)="openDetailModal(activity)" class="listDamange">
+    <section>
+      <p><strong>id:</strong> {{ activity.id }}</p>
+      <p><strong>addressDamage:</strong> {{ activity.addressDamage }}</p>
+      <p>
+        <strong>descriptionDamage:</strong> {{ activity.descriptionDamage }}
+      </p>
+      <p><strong>trueInformation:</strong> {{ activity.trueInformation }}</p>
+      <p><strong>typeDamage:</strong> {{ activity.typeDamage }}</p>
+      <p>
+        <strong>nationalIdentificationNumber:</strong>
+        {{ activity.nationalIdentificationNumber }}
+      </p>
+      <p><strong>userFullName:</strong> {{ activity.userFullName }}</p>
+    </section>
+    <section>
+      <img
+        [src]="[activity?.image]"
+        alt="{{ activity.descriptionDamage }}"
+        width="400"
+      />
+    </section>
+  </main>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <h2>Activity Details</h2>
+  <section>
+    <p><strong>id:</strong> {{ selectedActivity?.id }}</p>
+    <p><strong>addressDamage:</strong> {{ selectedActivity?.addressDamage }}</p>
+    <p>
+      <strong>descriptionDamage:</strong>{{ selectedActivity?.descriptionDamage }}
+    </p>
+    <img [src]="[selectedActivity?.image]" alt="" />
+    <p>
+      <strong>trueInformation:</strong> {{ selectedActivity?.trueInformation }}
+    </p>
+    <p><strong>typeDamage:</strong> {{ selectedActivity?.typeDamage }}</p>
+    <p>
+      <strong>nationalIdentificationNumber:</strong>
+      {{ selectedActivity?.nationalIdentificationNumber }}
+    </p>
+    <p><strong>userFullName:</strong> {{ selectedActivity?.userFullName }}</p>
+  </section>
+
+  <button (click)="closeModal()">Close</button>
+  <button (click)="downloadExcel()">Download Excel</button>
+</div>
