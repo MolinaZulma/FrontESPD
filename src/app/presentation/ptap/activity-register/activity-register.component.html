@@ -48,7 +48,7 @@
     </button>
   </div>
 
-  <table>
+  <table *ngIf="this._availableViews.canSeeList('activityRegister')">
     <thead>
       <tr>
         <th>ID</th>

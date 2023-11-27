@@ -34,7 +34,7 @@
       </button>
 </form>
 
-<table>
+<table *ngIf="this._availableViews.canSeeList('waterControll')">
     <thead>
       <tr>
         <th>ID</th>

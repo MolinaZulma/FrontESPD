@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EnumRoles } from 'src/app/application/services/availableViews/available-views.service';
 
 @Component({
   selector: 'app-ptap',
@@ -21,11 +22,4 @@ export class PtapComponent implements OnInit {
       this._router.navigate(['ptap', 'home']);
     }
   }
-}
-
-export enum EnumRoles {
-  Ptap = 'Ptap',
-  Ptar = 'Ptar',
-  User = 'User',
-  Administrator = 'Administrator',
 }

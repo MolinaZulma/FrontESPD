@@ -8,21 +8,21 @@ import { AuthCommandService } from 'src/app/application/features/auth/command/au
 import { DamageCommandService } from 'src/app/application/features/damageReport/command/damage-command.service';
 import { CommandParamsWithPayload, HttpMediator, HttpMediatorCallbacks } from 'src/app/application/meadiator/HttpMediator';
 import { ICreateDamageReportDTO } from 'src/app/application/DTO/damageReport/ICreateDamageReportDTO';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
+import { GenericCrudViewComponent } from '../../ptap/generic-crud-view/generic-crud-view.component';
 
 @Component({
   selector: 'app-create-report',
   templateUrl: './create-report.component.html',
   styleUrls: ['./create-report.component.css'],
 })
-export class CreateReportComponent implements OnInit {
+export class CreateReportComponent   extends GenericCrudViewComponent implements OnInit {
   public errorMessage: string | null = null;
   public damageReport!: FormGroup;
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator
-  ) {}
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
+  }
 
   public ngOnInit(): void {
     this.initForm();

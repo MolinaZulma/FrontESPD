@@ -20,7 +20,7 @@ export class ExcelService {
 
       const link: HTMLAnchorElement = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = fileName || 'excel-file.xlsx';
+      link.download = fileName ?? 'excel-file.xlsx';
 
       document.body.appendChild(link);
       link.click();

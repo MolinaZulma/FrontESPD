@@ -4,36 +4,21 @@
     </div>
   </nav>
   <main>
-    <!-- <section class="contenedorNav">
-      <div class="imageNav">
-        <img
-        src="../../../assets/images/_GIO2934.jpg"
-        alt="Imágen de Alcaldía de Támesis"
-      />
-      <img
-        src="../../../assets/images/_GIO6437.jpg"
-        alt="Imágen Casa de la Cultura Corregimiento San Pablo"
-      />
-
-      </div>
-    </section> -->
-
-
 
     <div class="titulo">
       <h2>Planta de Tratamiento de Agua Potable y Residual</h2>
     </div>
     <div  class="contenedor-logos" style="display: flex; flex-direction: row;">
-      <div *ngIf="isPtar" class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('waterControll')"  class="logo">
         <img src="../../../assets/images/controlAgua.png" alt="Logo 1" />
         <p (click)="waterControll()">Control de Agua</p>
       </div>
-      <div *ngIf="isPtar" class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('activityRegister')" class="logo">
         <img src="../../../assets/images/registroActividades.png" alt="Logo 2" />
   
         <p (click)="activityRegister()">Registro de Actividades</p>
       </div>
-      <div class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('jardFormat')" class="logo">
         <img src="../../../assets/images/controlJarras.png" alt="Logo 1" />
         <p (click)="jardFormat()">Formato de Jarras</p>
       </div>
@@ -41,11 +26,11 @@
         <img src="../../../assets/images/formularioPTAP.png" alt="Logo 2" />
         <p (click)="ptapFormat()">Formato PTAP</p>
       </div>
-      <div class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('users')" class="logo">
         <img src="../../../assets/images/usuarios.png" alt="Logo 2" />
         <p (click)="ptapFormat()">Usuarios</p>
       </div>
-      <div class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('damageReport')" class="logo">
         <img src="../../../../assets/images/queja.png" alt="Logo 2" />
         <p (click)="damageReport()">Reporte de daños</p>
       </div>

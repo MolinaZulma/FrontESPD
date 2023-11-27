@@ -1,36 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
+import { EnumRoles } from 'src/app/application/services/availableViews/available-views.service';
+import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  public readonly isPtar: boolean;
-
-  constructor(private readonly _router: Router) {
-    const userInfo = sessionStorage['userInfo'];
-    if (userInfo) {
-      const role = JSON.parse(userInfo)?.roles[0];
-      this.isPtar = role === EnumRoles.Ptap.toString() || role === EnumRoles.Administrator.toString();
-    } else {
-      this.isPtar = false;
-    }
-    
-    const role = JSON.parse(sessionStorage['userInfo'])?.roles[0];
-    if (role === 'Administrator') {
-      this.isPtar = true;
-      // this._router.navigate(['ptap', 'dashboard']);
-    }
+export class HomeComponent extends GenericCrudViewComponent implements OnInit {
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
   }
 
-  public ngOnInit(): void {
-    this.authorizeViewsOnRole();
-  }
-  private authorizeViewsOnRole() {
+  public ngOnInit(): void {}
 
-  }
   public waterControll(): void {
     this._router.navigate(['ptap', 'water-control']);
   }
@@ -49,11 +34,4 @@ export class HomeComponent implements OnInit {
   public damageReport(): void {
     this._router.navigate(['ptap', 'DamageReport']);
   }
-}
-
-export enum EnumRoles {
-  Ptap = 'Ptap',
-  Ptar = 'Ptar',
-  User = 'User',
-  Administrator = 'Administrator',
 }

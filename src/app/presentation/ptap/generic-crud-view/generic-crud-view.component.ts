@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpMediator } from 'src/app/application/meadiator/HttpMediator';
 import { ExcelService } from 'src/app/application/services/excel/excel.service';
 import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
+import { AvailableViewsService } from 'src/app/application/services/availableViews/available-views.service';
 
 @Component({
   selector: 'app-generic-crud-view',
@@ -20,6 +21,7 @@ export abstract class GenericCrudViewComponent {
   protected readonly _formBuilder: FormBuilder;
   protected readonly _httpMediator: HttpMediator;
   protected readonly _excelService: ExcelService;
+  protected readonly _availableViews: AvailableViewsService;
 
   constructor(private readonly _facadeLocatorService: FacadeLocatorService) {
     this._router = this._facadeLocatorService.getRouter();
@@ -27,5 +29,6 @@ export abstract class GenericCrudViewComponent {
     this._formBuilder = this._facadeLocatorService.getFormBuilder();
     this._httpMediator = this._facadeLocatorService.getHttpMediator();
     this._excelService = this._facadeLocatorService.getExcelService();
+    this._availableViews = this._facadeLocatorService.getAvailableViews();
   }
 }

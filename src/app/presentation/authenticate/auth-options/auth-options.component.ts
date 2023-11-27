@@ -7,7 +7,7 @@ import {
   HttpMediatorCallbacks,
   CommandParamsWithPayload,
 } from 'src/app/application/meadiator/HttpMediator';
-import { EnumRoles } from '../../ptap/home/home.component';
+import { EnumRoles } from 'src/app/application/services/availableViews/available-views.service';
 
 @Component({
   selector: 'app-auth-options',
