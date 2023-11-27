@@ -12,14 +12,16 @@ import {
   HttpMediatorCallbacks,
 } from 'src/app/application/meadiator/HttpMediator';
 import { ExcelService } from 'src/app/application/services/excel/excel.service';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
+import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
 
 @Component({
   selector: 'app-jard-format',
   templateUrl: './jard-format.component.html',
   styleUrls: ['./jard-format.component.css'],
 })
-export class JardFormatComponent implements OnInit {
+export class JardFormatComponent   extends GenericCrudViewComponent implements OnInit {
   public JardFormat!: FormGroup;
   public errorMessage!: string | null;
   public iListJarDTO!: IListJarDTO[];
@@ -27,13 +29,10 @@ export class JardFormatComponent implements OnInit {
   public showModal: boolean = false;
   public selectedActivity: IListJarDTO | null = null;
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator,
-    private readonly _excelService: ExcelService,
 
-    ) {}
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
+  }
 
   public ngOnInit(): void {
     this.initForm();

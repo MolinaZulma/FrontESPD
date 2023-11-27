@@ -14,28 +14,25 @@ import { IListFormatPTAPDTO } from 'src/app/application/DTO/formatPTAP/IListForm
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { PtapFormatService } from 'src/app/application/features/formatPTAP/query/ptap-format.service';
 import { ExcelService } from 'src/app/application/services/excel/excel.service';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
+import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
 
 @Component({
   selector: 'app-ptap-format',
   templateUrl: './ptap-format.component.html',
   styleUrls: ['./ptap-format.component.css'],
 })
-export class PtapFormatComponent implements OnInit {
+export class PtapFormatComponent   extends GenericCrudViewComponent implements OnInit {
   public createFormatPTAP!: FormGroup;
   public errorMessage!: string | null;
-
   public iListFormatPTAPDTO!: IListFormatPTAPDTO[];
   public showModal: boolean = false;
   public selectedActivity: IListFormatPTAPDTO | null = null;
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator,
-    private readonly _excelService: ExcelService,
-
-  ) {}
-
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
+  }
+  
   public ngOnInit(): void {
     this.initForm();
     this.getIListPtapFormat();

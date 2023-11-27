@@ -16,32 +16,31 @@ import {
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { ActivityDetailModalComponent } from '../activity-detail-modal/activity-detail-modal.component';
 import { ExcelService } from 'src/app/application/services/excel/excel.service';
+import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
 
 @Component({
   selector: 'app-activity-register',
   templateUrl: './activity-register.component.html',
   styleUrls: ['./activity-register.component.css'],
 })
-
-export class ActivityRegisterComponent implements OnInit {
-  public showModal: boolean = false
+export class ActivityRegisterComponent
+  extends GenericCrudViewComponent
+  implements OnInit
+{
+  public showModal: boolean = false;
   public errorMessage!: string | null;
   public ICreateActivityDTO!: FormGroup;
-  public ListActivityDTO!: IListActivityDTO[]
+  public ListActivityDTO!: IListActivityDTO[];
   public selectedActivity: IListActivityDTO | null = null;
 
-  constructor(
-    public dialog: MatDialog,
-    private readonly _router: Router,
-    private readonly _toastr: ToastrService,
-    private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator,
-    private readonly _excelService: ExcelService,
-  ) {}
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
+  }
 
   public ngOnInit(): void {
     this.initForm();
-    this.getIListActivityDTO()
+    this.getIListActivityDTO();
   }
 
   private getIListActivityDTO(): void {
@@ -65,14 +64,14 @@ export class ActivityRegisterComponent implements OnInit {
       return dateB.getTime() - dateA.getTime();
     });
   }
-  
+
   public openDetailModal(activity: IListActivityDTO): void {
-    this.showModal = true
+    this.showModal = true;
     this.selectedActivity = activity;
   }
 
   public closeModal(): void {
-    this.showModal = false
+    this.showModal = false;
     this.selectedActivity = null;
   }
 
@@ -84,19 +83,22 @@ export class ActivityRegisterComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const allow  = confirm('estas seguro de continuar')
+    const allow = confirm('estas seguro de continuar');
     if (allow) {
-      this.post()
-    } 
+      this.post();
+    }
   }
-  
+
   private post(): void {
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListActivityDTO> = {
       success: this.showCreated.bind(this),
       error: this.handleError.bind(this),
     };
-    const params: CommandParamsWithPayload<ICreateActivityDTO, IListActivityDTO> = {
+    const params: CommandParamsWithPayload<
+      ICreateActivityDTO,
+      IListActivityDTO
+    > = {
       commandClass: ActivityRegisterService,
       method: ActivityRegisterService.prototype.createActivity,
       data: this.getAuthenticateDTO(),
@@ -105,10 +107,9 @@ export class ActivityRegisterComponent implements OnInit {
     this._httpMediator.execWithPayload(params);
   }
 
-
   public showCreated(iListActivityDTO: IListActivityDTO): void {
     this._toastr.success('Registro de actividad cargada', 'Exitoso!');
-    this.goHome()
+    this.goHome();
   }
 
   public handleError(error: any): void {
@@ -120,21 +121,22 @@ export class ActivityRegisterComponent implements OnInit {
       idPlant: 1, // ptap,
       typeActivity: this.ICreateActivityDTO.get('TypeActivity')?.value ?? '',
       observations: this.ICreateActivityDTO.get('Observations')?.value ?? '',
-      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
+      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo'])
+        .nationalIdentificationNumber,
     };
   }
-  
+
   public goHome(): void {
-    this._router.navigate(['ptap', 'home'])
+    this._router.navigate(['ptap', 'home']);
   }
 
   public downloadExcel(): void {
     if (this.selectedActivity) {
-      this._excelService.generateExcelFile([this.selectedActivity], 'test-file').subscribe(() => {
-        console.log('Excel file generated and downloaded successfully!');
-      });
+      this._excelService
+        .generateExcelFile([this.selectedActivity], 'test-file')
+        .subscribe(() => {
+          console.log('Excel file generated and downloaded successfully!');
+        });
     }
   }
-
-
 }

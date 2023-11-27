@@ -10,30 +10,28 @@ import { IListActivityDTO } from 'src/app/application/DTO/activityLogs/IListActi
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { WaterControlCommandService } from 'src/app/application/features/waterControl/query/water-control-command.service';
 import { ExcelService } from 'src/app/application/services/excel/excel.service';
+import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
+import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
 
 @Component({
   selector: 'app-water-control',
   templateUrl: './water-control.component.html',
   styleUrls: ['./water-control.component.css']
 })
-export class WaterControlComponent implements OnInit {
+export class WaterControlComponent extends GenericCrudViewComponent implements OnInit {
   public ICreateWaterControlDTO!: FormGroup;
   public errorMessage!: string | null;
   public showModal: boolean = false
   public selectedActivity: IListWaterControlDTO | null = null;
   public iListWaterControlDTO!: IListWaterControlDTO[]
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _formBuilder: FormBuilder,
-    private readonly _httpMediator: HttpMediator,
-    private readonly _excelService: ExcelService,
-
-  ) {}
+  constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
+    super(_fadeLocatorService);
+  }
 
   public ngOnInit(): void {
     this.initForm();
-    this.getIListActivityDTO()
+    this.getIListActivityDTO();
   }
 
   private initForm(): void {

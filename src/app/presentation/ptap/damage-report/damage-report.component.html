@@ -1,3 +1,4 @@
+<button (click)="goHome()">Volver</button>
 <style>
   .listDamange {
     display: grid;
@@ -47,23 +48,28 @@
 <div *ngIf="showModal" class="modal">
   <h2>Activity Details</h2>
   <section>
-    <p><strong>id:</strong> {{ selectedActivity?.id }}</p>
-    <p><strong>addressDamage:</strong> {{ selectedActivity?.addressDamage }}</p>
     <p>
-      <strong>descriptionDamage:</strong>{{ selectedActivity?.descriptionDamage }}
-    </p>
-    <img [src]="[selectedActivity?.image]" alt="" />
-    <p>
+      <strong>id:</strong> {{ selectedActivity?.id }}
+      <br>
+      <strong>addressDamage:</strong> {{ selectedActivity?.addressDamage }}
+      <br>
+      <strong>descriptionDamage:</strong> {{ selectedActivity?.descriptionDamage }}
+      <br>
       <strong>trueInformation:</strong> {{ selectedActivity?.trueInformation }}
+      <br>
+      <strong>typeDamage:</strong> {{ selectedActivity?.typeDamage }}
+      <br>
+      <strong>nationalIdentificationNumber:</strong> {{ selectedActivity?.nationalIdentificationNumber }}
+      <br>
+      <strong>userFullName:</strong> {{ selectedActivity?.userFullName }}      
     </p>
-    <p><strong>typeDamage:</strong> {{ selectedActivity?.typeDamage }}</p>
-    <p>
-      <strong>nationalIdentificationNumber:</strong>
-      {{ selectedActivity?.nationalIdentificationNumber }}
-    </p>
-    <p><strong>userFullName:</strong> {{ selectedActivity?.userFullName }}</p>
+    
+    <img [src]="[selectedActivity?.image]" alt="" />
   </section>
 
-  <button (click)="closeModal()">Close</button>
-  <button (click)="downloadExcel()">Download Excel</button>
+  <section class="container-modal-button">
+    <button (click)="closeModal()" class="modal-button">Close</button>
+    <button (click)="downloadExcel()" class="modal-button">Download Excel</button>
+    <button (click)="downloadPDF()" class="modal-button">Download PDF</button>
+  </section>
 </div>
