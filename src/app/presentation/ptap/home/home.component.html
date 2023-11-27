@@ -22,7 +22,7 @@
         <img src="../../../assets/images/controlJarras.png" alt="Logo 1" />
         <p (click)="jardFormat()">Formato de Jarras</p>
       </div>
-      <div class="logo">
+      <div *ngIf="this._availableViews.canSeeComponent('ptapFormat')" class="logo">
         <img src="../../../assets/images/formularioPTAP.png" alt="Logo 2" />
         <p (click)="ptapFormat()">Formato PTAP</p>
       </div>

@@ -1,21 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { FormGroup, Validators } from '@angular/forms';
 import { ICreateActivityDTO } from 'src/app/application/DTO/activityLogs/ICreateActivityDTO';
 import { IListActivityDTO } from 'src/app/application/DTO/activityLogs/IListActivityDTO';
 import { ActivityRegisterService } from 'src/app/application/features/activityRegister/command/activity-register.service';
 import { ActivityRegisterQueryService } from 'src/app/application/features/activityRegister/query/activity-register-query.service';
-import {
-  HttpMediator,
-  HttpMediatorCallbacks,
-  CommandParamsWithPayload,
-  CommandParamsNoPayload,
-} from 'src/app/application/meadiator/HttpMediator';
+import { HttpMediatorCallbacks, CommandParamsWithPayload, CommandParamsNoPayload, } from 'src/app/application/meadiator/HttpMediator';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
-import { ActivityDetailModalComponent } from '../activity-detail-modal/activity-detail-modal.component';
-import { ExcelService } from 'src/app/application/services/excel/excel.service';
 import { GenericCrudViewComponent } from '../generic-crud-view/generic-crud-view.component';
 import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
 
@@ -121,8 +111,7 @@ export class ActivityRegisterComponent
       idPlant: 1, // ptap,
       typeActivity: this.ICreateActivityDTO.get('TypeActivity')?.value ?? '',
       observations: this.ICreateActivityDTO.get('Observations')?.value ?? '',
-      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo'])
-        .nationalIdentificationNumber,
+      nationalIdentificationNumber: JSON.parse(sessionStorage['userInfo']).nationalIdentificationNumber,
     };
   }
 
