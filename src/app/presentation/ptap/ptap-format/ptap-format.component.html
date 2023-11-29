@@ -1,1 +1,98 @@
-<p>ptap-format works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ptap-format/ptap-format.component.css">
+    <title>Formato PTAP</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt="Escudo de Támesis" class="img"></a>
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt="Logo ESPD" class="img"></a>
+        </div>
+        <div>
+            <a href="inicioSesion.html">
+            <img src="/src/assets/images/usuario.png" alt="Imagen de usuario" class="imgUsuario">
+            </a>
+        </div>
+    </header>
+
+    <h1>Formato PTAP</h1>
+    <form id="formatoPtap">
+        <table>
+            <tr>
+                <td><label for="fecha">Fecha y Hora</label></td>
+                <td><input type="datetime-local" id="date" name="fecha"></td>
+            </tr>
+            <tr>
+                <td><label for="claseAgua">Clase de Agua</label></td>
+                <td><input type="radio" id="opcion1" name="opciones" value="opcion1">
+                <label for="potable">Potable</label>
+                <input type="radio" id="opcion2" name="opciones" value="opcion2">
+                <label for="cruda">Cruda</label></td>
+            </tr>
+            <tr>
+                <td><label for="temperatura">Temperatura</label></td>
+                <td>6<input type="text" id="text" name="opciones">
+            </tr>
+            <tr>
+                <td><label for="alcalinidad">Alcalinidad</label></td>
+                <td class="contenedorInput">
+                    <label for="ph">PH</label><input type="text">
+                    <label for="cloro">CLORO</label><input type="text">
+                    <label for="lecturaInicial">Lect Inicial</label><input type="text">
+                    <label for="lecturaFinal">Lect Final</label><input type="text">
+                    <label for="total">Total</label><input type="text">
+                    <label for="alcalinidad">Alcalinidad</label><input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="cloroGaseoso">Cloro Gaseoso</label></td>
+                <td><input type="text" id="text" name="cloro"></td>
+            </tr>
+            <tr>
+                <td><label for="ppm">P.P.M</label></td>
+                <td><input type="text" id="text" name="ppm"></td>
+            </tr>
+            <tr>
+                <td><label for="operarioPlanta">Operario de Planta</label></td>
+                <td><input type="text" id="text" name="nombre"></td>
+            </tr>   
+        </table>
+        <div class="containerButton"><input class="submitButton" type="submit" value="Guardar"></div>
+        
+    </form>
+
+
+    <div class="containerBoton">
+        <button type="button" class="button" id="generarPDF"><img src="/src/assets/images/pdf.png" alt=""></button>
+        <button class="button" id="exportarExcel"><img src="/src/assets/images/excel.png" alt=""></button>
+    </div>
+   
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <h4>Redes Sociales</h4>
+            <div class="social-media">
+                <a href="https://www.facebook.com/espd.tamesis">
+                    <img src="/src/assets/images/facebook (1).png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
+                    <img src="/src/assets/images/youtube.png" alt="">
+                </a>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>

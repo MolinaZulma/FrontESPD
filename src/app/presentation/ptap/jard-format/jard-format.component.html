@@ -1,1 +1,91 @@
-<p>jard-format works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../jard-format/jard-format.component.css">
+    <title>Registro Test de Jarras</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt="Escudo de Támesis" class="img"></a>
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt="Logo ESPD" class="img"></a>
+        </div>
+        <div>
+            <a href="inicioSesion.html">
+            <img src="/src/assets/images/usuario.png" alt="Imagen de usuario" class="imgUsuario">
+            </a>
+        </div>
+    </header>
+
+    <h1>Registro Test de Jarras</h1>
+    <form id="jarras">
+        <table>
+            <tr>
+                <td><label for="date">Fecha y Hora</label></td>
+                <td><input type="datetime-local" id="date" name="fecha" value="fecha"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Concentración de Jarras en PPM</label></td>
+                <td><input type="radio" id="opcion1" name="opciones" value="opcion1">
+                <label for="opcion1">1</label>
+                <input type="radio" id="opcion2" name="opciones" value="opcion2">
+                <label for="opcion2">2</label>
+                <input type="radio" id="opcion3" name="opciones" value="opcion3">
+                <label for="opcion3">3</label>
+                <input type="radio" id="opcion4" name="opciones" value="opcion4">
+                <label for="opcion4">4</label>
+                <input type="radio" id="opcion5" name="opciones" value="opcion5">
+                <label for="opcion5">5</label>
+                <input type="radio" id="opcion6" name="opciones" value="opcion6">
+                <label for="opcion6">6</label></td>
+            </tr>
+            <tr><td><label for="text">Jarra Óptima</label></td>
+                <td><input type="text" id="text" name="jarraOptima" value="jarraOptima"></td>
+            </tr>
+            <tr>
+                <td><label for="text">pH Jarra</label></td>
+                <td><input type="text" id="text" name="hipoclorito" value="hipoclorito"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Firma Responsable</label></td>
+                <td><input type="text" id="text" name="nombre" value="nombre"></td>
+            </tr>   
+        </table>
+        <div class="containerButton"><input class="submitButton" type="submit" value="Guardar"></div>
+        
+    </form>
+
+
+    <div class="containerBoton">
+        <button class="button" id="generarPDF"><img src="/src/assets/images/pdf.png" alt=""></button>
+        <button class="button" id="exportarExcel"><img src="/src/assets/images/excel.png" alt=""></button>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <h4>Redes Sociales</h4>
+            <div class="social-media">
+                <a href="https://www.facebook.com/espd.tamesis">
+                    <img src="/src/assets/images/facebook (1).png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
+                    <img src="/src/assets/images/youtube.png" alt="">
+                </a>
+            </div>
+        </div>
+    </footer> 
+
+    <script src="/controllers/jarras.controller.js" type="module"></script>
+    
+</body>
+</html>

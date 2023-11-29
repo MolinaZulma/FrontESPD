@@ -13,8 +13,8 @@ export class AuthenticateComponent implements OnInit {
     this.renderAuthOptions();
   }
 
-  public renderAuthOptions(): void {
-    this._router.navigate(['auth', 'auth-options']);
+ public renderAuthOptions(): void {
+    this._router.navigate(['auth', 'home']);
   }
 
   public renderSignupForm(): void {

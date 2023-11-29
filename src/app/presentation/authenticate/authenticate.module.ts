@@ -8,6 +8,7 @@ import { SingnInComponent } from './singn-in/singn-in.component';
 import { SingnUpComponent } from './singn-up/singn-up.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SingnInComponent,
     SingnUpComponent,
     PasswordResetComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

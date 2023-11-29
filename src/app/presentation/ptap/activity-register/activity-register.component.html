@@ -1,1 +1,74 @@
-<p>activity-register works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../activity-register/activity-register.component.css">
+    <title>Registro de Actividades</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt="Escudo de Támesis" class="img"></a>
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt="Logo ESPD" class="img"></a>
+        </div>
+        <div>
+            <a href="inicioSesion.html">
+            <img src="/src/assets/images/usuario.png" alt="Imagen de usuario" class="imgUsuario">
+            </a>
+        </div>
+    </header>
+
+    <h1>Registro de Lavado y Mantenimiento de Filtros</h1>
+    <form id="miFormulario">
+        <table>
+            <tr>
+                <td><label for="date">Fecha y Hora</label></td>
+                <td><input type="datetime-local" id="date" name="fecha" value="fecha"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Actividad</label></td>
+                <td><input type="text" id="text" name="actividad" value="actividad"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Responsable</label></td>
+                <td><input type="text" id="text" name="nombre" value="responsable"></td>
+            </tr>   
+            <tr>
+                <td><label for="text">Observaciones</label></td>
+                <td><input type="text" id="text" name="estado" value="observaciones"></td>
+            </tr> 
+        </table>
+        <div class="containerButton"><input class="submitButton" type="submit" value="Guardar"></div>
+        
+    </form>
+
+    <div class="containerBoton">
+        <button class="button" id="generarPDF"><img src="/src/assets/images/pdf.png" alt=""></button>
+        <button class="button" id="miFormulario"><img src="/src/assets/images/excel.png" alt=""></button>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <h4>Redes Sociales</h4>
+            <div class="social-media">
+                <a href="https://www.facebook.com/espd.tamesis">
+                    <img src="/src/assets/images/facebook (1).png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
+                    <img src="/src/assets/images/youtube.png" alt="">
+                </a>
+            </div>
+        </div>
+    </footer> 
+
+</body>
+</html>

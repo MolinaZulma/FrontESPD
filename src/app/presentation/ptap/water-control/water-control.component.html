@@ -1,1 +1,95 @@
-<p>water-control works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formato Control de Agua</title>
+    <link rel="stylesheet" href="../water-control/water-control.component.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt="Escudo de Támesis" class="img"></a>
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt="Logo ESPD" class="img"></a>
+        </div>
+        <div>
+            <a href="inicioSesion.html">
+            <img src="/src/assets/images/usuario.png" alt="Imagen de usuario" class="imgUsuario">
+            </a>
+        </div>
+    </header>
+
+    <h1>Formulario Control de Agua</h1>
+    <form id="controlAgua">
+        <table id="miTabla">
+            <tr>
+                <td><label for="date">Fecha y Hora</label></td>
+                <td><input type="datetime-local" id="date" name="fecha" value="fecha"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Total Horas</label></td>
+                <td><input type="text" id="text" name="total_horas" value="total_horas"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Cantidad de Agua</label></td>
+                <td>
+                    <label for="opcion1">Captada</label>
+                    <input type="radio" id="opcion1" name="opcion1" value="opcion1">
+                    <input type="text" id="opcion1">
+                    
+                    <label for="opcion2">Suministro M3</label>
+                    <input type="radio" id="opcion2" name="opcion2" value="opcion2">
+                    <input type="text" id="opcion2">
+                </td>
+            </tr>
+            <tr><td><label for="text">Sulfato de Aluminio</label></td>
+                <td><input type="text" id="text" name="sulfato" value="sulfato"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Hipoclorito de Sodio</label></td>
+                <td><input type="text" id="text" name="hipoclorito" value="hipoclorito"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Cloro Gaseoso</label></td>
+                <td><input type="text" id="text" name="cloro" value="cloro"></td>
+            </tr>
+            <tr>
+                <td><label for="text">P.P.M</label></td>
+                <td><input type="text" id="text" name="ppm" value="ppm"></td>
+            </tr>
+            <tr>
+                <td><label for="text">Operario de Planta</label></td>
+                <td><input type="text" id="text" name="nombre" value="nombre"></td>
+            </tr>   
+        </table>
+        <div class="containerButton"><input class="submitButton" type="submit" value="Guardar"></div>
+    </form>
+
+    <div class="containerBoton">
+        <button class="button" id="generarPDF"><img src="/src/assets/images/pdf.png" alt=""></button>
+        <button class="button" id="exportarExcel"><img src="/src/assets/images/excel.png" alt=""></button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/escudo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <a href="index.html"><img src="/src/assets/images/logo.png" alt=""></a>
+        </div>
+        <div class="partFooter">
+            <h4>Redes Sociales</h4>
+            <div class="social-media">
+                <a href="https://www.facebook.com/espd.tamesis">
+                    <img src="/src/assets/images/facebook (1).png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UC8mY0utSRe4ov3uCuZg_rEA">
+                    <img src="/src/assets/images/youtube.png" alt="">
+                </a>
+            </div>
+        </div>
+    </footer> 
+   
+</body>
+</html>
