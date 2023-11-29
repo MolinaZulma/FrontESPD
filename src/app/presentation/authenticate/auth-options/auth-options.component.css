@@ -1,3 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    scroll-behavior: smooth;/*Esta propiedad permite el desplazamiento cuando se da clic en un titulo*/
+    --green: hsla(115, 78%, 19%, 0.884);
+    --lead: hsl(173, 87%, 20%);/*plomo en inglés es lead*/
+    --blue: hsl(0, 0%, 0%);
+    --text-white: hsl(0, 0%, 100%);
+    --text-light-grey: hsl(0, 0%, 0%);
+    --body-bg-color: hsl(0, 0%, 0%);
+    --glass-bg-color: hsla(56, 71%, 20%, 0.603);
+    --border-color: hsla(0, 0%, 0%, 0.25);
+    --blur: blur(10px);
+    --button-hover-color: hsla(246, 86%, 25%, 0.3);
+    --imagen-fondo: url("assets/images/_GIO2934.jpg")
+}
+body{
+    background-image: url('../images/_GIO5269.jpg');
+    background-position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    width: 100%;
+    height: 100%;
+    color: var(--text-light-grey);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+body::after,
+body::before{
+    content: '';
+    position: fixed;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(150px);
+    opacity: 0.5;
+}
+body::before{
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%);
+}
+body::after{
+    right: 0;
+    top: 0;
+    transform: translate(50%);
+}
+a{
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+}
+
 .gradient-text {
   background: linear-gradient(to right, var(--green), var(--lead));
   -webkit-background-clip: text;
