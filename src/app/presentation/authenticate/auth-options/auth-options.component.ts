@@ -35,32 +35,32 @@ export class AuthOptionsComponent implements OnInit {
     });
   }
 
-  public onSubmit(): void {
-    this.errorMessage = null;
-    const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
-      success: this.setToken.bind(this),
-      error: this.handleError.bind(this),
-    };
-    const params: CommandParamsWithPayload<ICreateTokenDTO, IListTokenDTO> = {
-      commandClass: AuthCommandService,
-      method: AuthCommandService.prototype.authenticate,
-      data: this.getAuthenticateDTO(),
-      callbacks,
-    };
-    this._httpMediator.execWithPayload(params);
-  }
+    public onSubmit(): void {
+      this.errorMessage = null;
+      const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
+        success: this.setToken.bind(this),
+        error: this.handleError.bind(this),
+      };
+      const params: CommandParamsWithPayload<ICreateTokenDTO, IListTokenDTO> = {
+        commandClass: AuthCommandService,
+        method: AuthCommandService.prototype.authenticate,
+        data: this.getAuthenticateDTO(),
+        callbacks,
+      };
+      this._httpMediator.execWithPayload(params);
+    }
 
-  private setToken(tokenObject: IListTokenDTO): void {
-    sessionStorage.setItem('userInfo', JSON.stringify(tokenObject.data));
-    const role = tokenObject.data.roles[0];
-    if (role) {
-      if (role === EnumRoles.User.toString()) {
-        this._router.navigate(['damageReport',]);
-      } else {
-        this._router.navigate(['ptap',]);
+    private setToken(tokenObject: IListTokenDTO): void {
+      sessionStorage.setItem('userInfo', JSON.stringify(tokenObject.data));
+      const role = tokenObject.data.roles[0];
+      if (role) {
+        if (role === EnumRoles.User.toString()) {
+          this._router.navigate(['damageReport',]);
+        } else {
+          this._router.navigate(['ptap',]);
+        }
       }
     }
-  }
 
   private getAuthenticateDTO(): ICreateTokenDTO {
     return {
@@ -74,13 +74,11 @@ export class AuthOptionsComponent implements OnInit {
   }
 
   public renderResetPassword(): void {
-    this._router.navigate(['auth', 'password-reset']);
+    this._router.navigate(['authenticate', 'password-reset']);
   }
 
   public renderSignupForm(): void {
-    console.log(5);
-
-    this._router.navigate(['auth', 'create']);
+    this._router.navigate(['authenticate', 'create']);
   }
 }
 

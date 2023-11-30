@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./authenticate.component.css'],
 })
 export class AuthenticateComponent implements OnInit {
-  constructor(private readonly _router: Router) {}
+  constructor(private readonly _router: Router) {
+    debugger
+  }
 
   public ngOnInit(): void {
     this.renderAuthOptions();
+    // this.renderSignupForm();
   }
 
   public renderAuthOptions(): void {

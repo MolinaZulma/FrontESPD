@@ -11,6 +11,7 @@ export class EndPointRepository {
 
   public User = (): string => `${this._baseUrl}/User`;
   public DamageReport = (): string => `${this._baseUrl}/DamageReport`;
+  public register = (): string => `${this._baseUrl}/Account/register`;
   public getAll = (): string => `${this._baseUrl}/Account/users/getAll`;
   public JarFormatForm = (): string => `${this._baseUrl}/JarFormatForm`;
   public FormatPTAPForm = (): string => `${this._baseUrl}/FormatPTAPForm`;

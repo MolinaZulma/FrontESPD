@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 :root{
-    scroll-behavior: smooth;/*Esta propiedad permite el desplazamiento cuando se da clic en un titulo*/
+    scroll-behavior: smooth;
     --green: hsla(115, 78%, 19%, 0.884);
-    --lead: hsl(173, 87%, 20%);/*plomo en inglés es lead*/
+    --lead: hsl(173, 87%, 20%)
     --blue: hsl(0, 0%, 0%);
     --text-white: hsl(0, 0%, 100%);
     --text-light-grey: hsl(0, 0%, 0%);
@@ -15,10 +15,10 @@
     --border-color: hsla(0, 0%, 0%, 0.25);
     --blur: blur(10px);
     --button-hover-color: hsla(246, 86%, 25%, 0.3);
-    --imagen-fondo: url("assets/images/_GIO2934.jpg")
+    --imagen-fondo: url("../../../../assets/images/_GIO2934.jpg")
 }
-body{
-    background-image: url('../images/_GIO5269.jpg');
+.form-main {
+    background-image: url('../../../../assets/images/_GIO5269.jpg');
     background-position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
@@ -131,7 +131,6 @@ a{
   font-family: inherit;
   cursor: pointer;
   border-radius: 25px;
-  /* user-select: none; */
   background: linear-gradient(to right, var(--green), var(--lead));
   border: none;
   color: var(--text-white);
