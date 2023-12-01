@@ -80,6 +80,11 @@ export class AuthOptionsComponent implements OnInit {
   public renderSignupForm(): void {
     this._router.navigate(['authenticate', 'create']);
   }
+
+  
+  public renderAuthOptions(): void {
+    this._router.navigate(['authenticax`te', 'auth-options']);
+  }
 }
 
 export interface IListTokenDTO {

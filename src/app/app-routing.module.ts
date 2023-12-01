@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'ptar', loadChildren: () => import('./presentation/ptar/ptar.module').then(m => m.PtarModule) },
   { path: 'commonComponent', loadChildren: () => import('./presentation/common-component/common-component.module').then(m => m.CommonComponentModule) },
   
-  { path: '**', redirectTo: 'authenticate/auth-options', pathMatch: 'full' },
+  { path: '**', redirectTo: 'authenticate', },
 ];
 
 @NgModule({

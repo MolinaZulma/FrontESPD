@@ -87,9 +87,7 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
     }
   }
 
-  
   public getClientCredenctials = (): ICreateTokenDTO => ({ email: this.createUserDTO.email, password: this.createUserDTO.password });
-
 
   private getCreateNewUserDTO(): ICreateUserDTO {
     this.createUserDTO = {
@@ -116,6 +114,11 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
   public renderSignupForm(): void {
     this._router.navigate(['auth', 'singn-up']);
   }
+
+  public renderAuthOptions(): void {
+    this._router.navigate(['authenticate', 'auth-options']);
+  }
+
 }
 
 

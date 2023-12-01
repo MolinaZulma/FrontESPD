@@ -1,32 +1,32 @@
+<button (click)="renderAuthOptions()">Volver</button>
 <section class="form-main background-create-account">
-    <div class="form-content">
-      <div class="box">
-        <h1>Crear una cuenta</h1>
-        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="google-form">
-          <section class="input-box">
-            <input type="text" name="nationalIdentificationNumber" id="nationalIdentificationNumber" formControlName="nationalIdentificationNumber" placeholder="nationalIdentificationNumber" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="email" name="email" id="email" formControlName="email" placeholder="email" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="text" name="userName" id="userName" formControlName="userName" placeholder="userName" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="text" name="password" id="password" formControlName="password" placeholder="password" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="text" name="confirmPassword" id="confirmPassword" formControlName="password" placeholder="confirmPassword" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="text" name="fullName" id="fullName" formControlName="fullName" placeholder="fullName" class="input-control">
-          </section>
-          <section class="input-box">
-            <input type="text" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" placeholder="phoneNumber" class="input-control">
-          </section>
-          <button type="submit" [disabled]="!signUpForm.valid" class="btn ">Ingresar</button>
-        </form>
-      </div>
+  <div class="form-content">
+    <div class="box">
+      <h1>Crear una cuenta</h1>
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="google-form">
+        <section class="input-box">
+          <input type="text" name="nationalIdentificationNumber" id="nationalIdentificationNumber" formControlName="nationalIdentificationNumber" placeholder="nationalIdentificationNumber" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="email" name="email" id="email" formControlName="email" placeholder="email" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="text" name="userName" id="userName" formControlName="userName" placeholder="userName" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="text" name="password" id="password" formControlName="password" placeholder="password" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="text" name="confirmPassword" id="confirmPassword" formControlName="password" placeholder="confirmPassword" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="text" name="fullName" id="fullName" formControlName="fullName" placeholder="fullName" class="input-control">
+        </section>
+        <section class="input-box">
+          <input type="text" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" placeholder="phoneNumber" class="input-control">
+        </section>
+        <button type="submit" [disabled]="!signUpForm.valid" class="btn ">Ingresar</button>
+      </form>
     </div>
-  </section>
-  
+  </div>
+</section>
