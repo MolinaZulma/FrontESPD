@@ -83,7 +83,7 @@ export class AuthOptionsComponent implements OnInit {
 
   
   public renderAuthOptions(): void {
-    this._router.navigate(['authenticax`te', 'auth-options']);
+    this._router.navigate(['authenticate', 'home']);
   }
 }
 
