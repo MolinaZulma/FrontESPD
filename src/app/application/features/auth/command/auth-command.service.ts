@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAuthenticateDTO } from 'src/app/application/DTO/auth/IAuthenticateDTO';
 import { IJwtDTO } from 'src/app/application/DTO/auth/IJwtDTO';
+import { IResetPassword } from 'src/app/application/DTO/auth/IResetPassword';
+import { IListResetPassword } from 'src/app/application/DTO/auth/iListResetPassword';
 import { ISerialize } from 'src/app/domain/models/ISerialize.model';
 import { BaseHttpClient } from 'src/app/persistence/repository/BaseHttpClient';
 import { ICreateTokenDTO, IListTokenDTO } from 'src/app/presentation/authenticate/auth-options/auth-options.component';
@@ -19,7 +21,12 @@ export class AuthCommandService extends BaseHttpClient {
   public authenticate(auth: ICreateTokenDTO): Observable<IListTokenDTO> {
     return super.post(auth, this.endPoints.authenticate());
   }
+  
   public register(auth: ICreateUserDTO): Observable<IListUserCreatedDTO> {
     return super.post(auth, this.endPoints.register());
+  }
+  
+  public resetPassword(iResetPassword: IResetPassword): Observable<IListResetPassword> {
+    return super.put(iResetPassword, this.endPoints.ResetPassword());
   }
 }

@@ -53,7 +53,10 @@ export class CreateReportComponent   extends GenericCrudViewComponent implements
     this._httpMediator.execWithPayload(params);
   }
 
-  public showCreated(): void {}
+  public showCreated(iListDamageDTO: IListDamageDTO): void {
+    this._toastr.success("Reporte creado exitosamente!")
+    this._router.navigate(['authenticate', 'home'])
+  }
 
   public handleError(): void {}
 

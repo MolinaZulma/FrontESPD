@@ -3,8 +3,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IRegisterDTO } from 'src/app/application/DTO/auth/IRegisterDTO';
 import { AuthCommandService } from 'src/app/application/features/auth/command/auth-command.service';
-import { HttpMediator, HttpMediatorCallbacks, CommandParamsWithPayload } from 'src/app/application/meadiator/HttpMediator';
-import { IListTokenDTO, ICreateTokenDTO } from '../auth-options/auth-options.component';
+import {
+  HttpMediator,
+  HttpMediatorCallbacks,
+  CommandParamsWithPayload,
+} from 'src/app/application/meadiator/HttpMediator';
+import {
+  IListTokenDTO,
+  ICreateTokenDTO,
+} from '../auth-options/auth-options.component';
 import { FacadeLocatorService } from 'src/app/application/services/facadeLocator/facade-locator.service';
 import { GenericCrudViewComponent } from '../../ptap/generic-crud-view/generic-crud-view.component';
 import { EnumRoles } from 'src/app/application/services/availableViews/available-views.service';
@@ -12,10 +19,13 @@ import { EnumRoles } from 'src/app/application/services/availableViews/available
 @Component({
   selector: 'app-singn-up',
   templateUrl: './singn-up.component.html',
-  styleUrls: ['./singn-up.component.css']
+  styleUrls: ['./singn-up.component.css'],
 })
 // IRegisterDTO
-export class SingnUpComponent extends GenericCrudViewComponent implements OnInit {
+export class SingnUpComponent
+  extends GenericCrudViewComponent
+  implements OnInit
+{
   public errorMessage: string | null = null;
   public signUpForm!: FormGroup;
   private createUserDTO!: ICreateUserDTO;
@@ -23,7 +33,6 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
   constructor(private readonly _fadeLocatorService: FacadeLocatorService) {
     super(_fadeLocatorService);
   }
-
 
   public ngOnInit(): void {
     this.initForm();
@@ -47,7 +56,10 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
       success: this.getClientIdCreated.bind(this),
       error: this.handleError.bind(this),
     };
-    const params: CommandParamsWithPayload<ICreateUserDTO, IListUserCreatedDTO> = {
+    const params: CommandParamsWithPayload<
+      ICreateUserDTO,
+      IListUserCreatedDTO
+    > = {
       commandClass: AuthCommandService,
       method: AuthCommandService.prototype.register,
       data: this.getCreateNewUserDTO(),
@@ -57,7 +69,7 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
   }
 
   private getClientIdCreated(iListUserCreatedDTO: IListUserCreatedDTO): void {
-    this.generateSession()
+    this.generateSession();
   }
 
   public generateSession(): void {
@@ -80,18 +92,22 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
     const role = tokenObject.data.roles[0];
     if (role) {
       if (role === EnumRoles.User.toString()) {
-        this._router.navigate(['damageReport',]);
+        this._router.navigate(['damageReport']);
       } else {
-        this._router.navigate(['ptap',]);
+        this._router.navigate(['ptap']);
       }
     }
   }
 
-  public getClientCredenctials = (): ICreateTokenDTO => ({ email: this.createUserDTO.email, password: this.createUserDTO.password });
+  public getClientCredenctials = (): ICreateTokenDTO => ({
+    email: this.createUserDTO.email,
+    password: this.createUserDTO.password,
+  });
 
   private getCreateNewUserDTO(): ICreateUserDTO {
     this.createUserDTO = {
-      nationalIdentificationNumber: this.signUpForm.get('nationalIdentificationNumber')?.value ?? '',
+      nationalIdentificationNumber:
+        this.signUpForm.get('nationalIdentificationNumber')?.value ?? '',
       email: this.signUpForm.get('email')?.value ?? '',
       userName: this.signUpForm.get('userName')?.value ?? '',
       password: this.signUpForm.get('password')?.value ?? '',
@@ -100,7 +116,7 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
       phoneNumber: this.signUpForm.get('phoneNumber')?.value ?? '',
       nameRole: EnumRoles.User.toString(),
     };
-    return this.createUserDTO
+    return this.createUserDTO;
   }
 
   private handleError(error: string): void {
@@ -118,25 +134,23 @@ export class SingnUpComponent extends GenericCrudViewComponent implements OnInit
   public renderAuthOptions(): void {
     this._router.navigate(['authenticate', 'auth-options']);
   }
-
 }
-
 
 export interface ICreateUserDTO {
   nationalIdentificationNumber: string;
-  email:                        string;
-  userName:                     string;
-  password:                     string;
-  confirmPassword:              string;
-  fullName:                     string;
-  phoneNumber:                  string;
-  nameRole:                     string;
+  email: string;
+  userName: string;
+  password: string;
+  confirmPassword: string;
+  fullName: string;
+  phoneNumber: string;
+  nameRole: string;
 }
 
 export interface IListUserCreatedDTO {
-  data:       string;
-  message:    string;
-  succeed:    boolean;
-  errors:     null;
+  data: string;
+  message: string;
+  succeed: boolean;
+  errors: null;
   statusCode: number;
 }

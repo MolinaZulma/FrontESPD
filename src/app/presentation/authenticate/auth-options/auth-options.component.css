@@ -137,6 +137,7 @@ a{
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin: 4px;
 }
 .form-main .btn::before {
   content: "";

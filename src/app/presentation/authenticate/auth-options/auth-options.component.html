@@ -11,7 +11,7 @@
                 </div>
                 <button type="submit" [disabled]="!signInForm.valid" class="btn">Ingresar</button>
             </form>
-            <button>Has olvidado tu contraseña</button>
+            <button (click)="renderResetPassword()" class="btn">Has olvidado tu contraseña</button>
             <button (click)="renderAuthOptions()" class="btn">Volver</button>
             <button (click)="renderSignupForm()" class="btn">Crear cuenta</button>
         </div>

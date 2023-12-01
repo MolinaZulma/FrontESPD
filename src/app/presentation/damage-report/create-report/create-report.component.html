@@ -1,3 +1,4 @@
+<h1 style="text-align: center; padding: 20px;">Reporte de daños</h1>
 <form [formGroup]="damageReport" (ngSubmit)="onSubmit()" class="google-form">
     <section>
         <label for="tipoDanio">Tipo de Daño:</label>
@@ -17,7 +18,7 @@
     </section>
     <section>
         <label for="image">Adjuntar Imagen del Daño:</label>
-        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" id="image">
     </section>
     <section>
         <label for="trueInformation">

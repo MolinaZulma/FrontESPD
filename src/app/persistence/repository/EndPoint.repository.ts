@@ -13,6 +13,7 @@ export class EndPointRepository {
   public DamageReport = (): string => `${this._baseUrl}/DamageReport`;
   public register = (): string => `${this._baseUrl}/Account/register`;
   public getAll = (): string => `${this._baseUrl}/Account/users/getAll`;
+  public ResetPassword = (): string => `${this._baseUrl}/Account/reset-password`;
   public JarFormatForm = (): string => `${this._baseUrl}/JarFormatForm`;
   public FormatPTAPForm = (): string => `${this._baseUrl}/FormatPTAPForm`;
   public WaterControlForm = (): string => `${this._baseUrl}/WaterControlForm`;

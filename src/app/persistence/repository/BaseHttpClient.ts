@@ -21,9 +21,9 @@ export abstract class BaseHttpClient {
   protected post<T>(param: object, endPoint: string): Observable<T> {
     return this.http.post<T>(endPoint, param);
   }
-
-  protected put<T>(endPoint: string, instance: object): Observable<ISerialize<T>> {
-    return this.http.put<ISerialize<T>>(endPoint, instance);
+  
+  protected put<T>(param: object, endPoint: string): Observable<T> {
+    return this.http.put<T>(endPoint, param);
   }
 
   protected patch<T>(param: object, endPoint: string): Observable<ISerialize<T>> {
