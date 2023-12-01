@@ -34,4 +34,7 @@ export class HomeComponent extends GenericCrudViewComponent implements OnInit {
   public damageReport(): void {
     this._router.navigate(['ptap', 'DamageReport']);
   }
+  public userList(): void {
+    this._router.navigate(['ptap', 'user']);
+  }
 }

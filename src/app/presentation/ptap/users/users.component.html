@@ -1,1 +1,46 @@
-<p>users works!</p>
+<main style="display: flex ; flex-direction: column; justify-content: center;">
+    <table *ngIf="this._availableViews.canSeeList('waterControll')" style="margin-left: 10%; margin-right: 10%; border: solid 1px black; border-radius: 15px;">
+      <thead>
+        <tr style="padding: 2px;">
+          <th><h1>nationalIdentificationNumber</h1></th>
+          <th><h1>email</h1></th>
+          <th><h1>fullName</h1></th>
+          <th><h1>phoneNumber</h1></th>
+        </tr>
+      </thead>
+      <tbody>
+        <style>
+          tr:hover {
+            background-color: rgb(155, 155, 155);
+          }
+        </style>
+        <tr
+          (click)="openDetailModal(activity)"
+          *ngFor="let activity of IListUsersDTO"
+          style="padding: 2px;"
+        >
+          <td> <h2>{{ activity.nationalIdentificationNumber }}</h2></td>
+          <td> <h2>{{ activity.email }}</h2></td>
+          <td> <h2>{{ activity.fullName }}</h2></td>
+          <td> <h2>{{ activity.phoneNumber }}</h2></td>
+        </tr>
+      </tbody>
+    </table>
+
+</main>
+
+<div *ngIf="this.showModal" class="modal">
+  <h2>Activity Details</h2>
+  <section>
+    <p>
+      <strong>nationalIdentificationNumber:</strong>
+      {{ selectedActivity?.nationalIdentificationNumber }}
+    </p>
+    <p><strong>email:</strong> {{ selectedActivity?.email }}</p>
+    <p><strong>fullName:</strong> {{ selectedActivity?.fullName }}</p>
+    <p><strong>phoneNumber:</strong> {{ selectedActivity?.phoneNumber }}</p>
+  </section>
+
+  <button (click)="closeModal()" >Close</button>
+  <button (click)="downloadExcel()" >Download Excel</button>
+</div>

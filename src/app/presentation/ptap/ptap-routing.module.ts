@@ -8,12 +8,14 @@ import { WaterControlComponent } from './water-control/water-control.component';
 import { JardFormatComponent } from './jard-format/jard-format.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DamageReportComponent } from './damage-report/damage-report.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PtapComponent,
     children: [
+      { path: 'user', component: UsersComponent },
       { path: 'home', component: HomeComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'ptap-format', component: PtapFormatComponent },
